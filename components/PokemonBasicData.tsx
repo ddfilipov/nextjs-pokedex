@@ -13,6 +13,10 @@ interface IPokemonBasicData {
     src: string;
 }
 
+const Wrapper = styled.div`
+    border: 1px solid black;
+`;
+
 export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>();
     const getPokemonData = async (id: string) => {
