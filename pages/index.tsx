@@ -7,16 +7,25 @@ import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 1200px;
+    gap: 5px;
+    padding: 5px;
 `;
 
 export default function Home({ results }: IGetPokemon) {
     return (
-        <>
+        <MainContainer>
             <h1>Pokédex</h1>
             <Wrapper>
                 {results.map((pokemon) => {
@@ -25,7 +34,7 @@ export default function Home({ results }: IGetPokemon) {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
-        </>
+        </MainContainer>
     );
 }
 
