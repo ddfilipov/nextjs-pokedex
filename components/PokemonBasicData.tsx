@@ -2,31 +2,17 @@ import axios from "axios";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import imageLoader from "../imageLoader";
-import { IGetPokemon } from "../interfaces";
 
-const PokemonList = ({ results }: IGetPokemon) => {
-    return (
-        <>
-            <h1>Pokédex</h1>
-            {results.map((pokemon) => {
-                // getPokemonData(pokemon.name);
-                // return <li key={pokemon.name}>{pokemon.name} </li>;
-                return <PokemonData id={pokemon.name} />;
-            })}
-        </>
-    );
-};
-
-interface PokemonDataProps {
+interface PokemonBasicDataProps {
     id: string;
 }
 
-export const PokemonData: FC<PokemonDataProps> = ({ id }) => {
-    const [pokeData, setPokeData] = useState<any>();
+export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
+    const [pokeData, setPokeData] = useState<any>({});
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         console.log(res.data);
-        await setPokeData(res.data);
+        setPokeData(res.data);
     };
 
     useEffect(() => {
@@ -47,4 +33,4 @@ export const PokemonData: FC<PokemonDataProps> = ({ id }) => {
         </div>
     );
 };
-export default PokemonList;
+export default PokemonBasicData;

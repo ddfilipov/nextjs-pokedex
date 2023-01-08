@@ -2,12 +2,21 @@ import { Inter } from "@next/font/google";
 import { GetStaticProps } from "next";
 import axios from "axios";
 import { IGetPokemon } from "../interfaces";
-import PokemonList from "../components/PokemonList";
+import PokemonList, { PokemonBasicData } from "../components/PokemonBasicData";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ results }: IGetPokemon) {
-    return <PokemonList results={results} />;
+    return (
+        <>
+            <h1>Pokédex</h1>
+            {results.map((pokemon) => {
+                // getPokemonData(pokemon.name);
+                // return <li key={pokemon.name}>{pokemon.name} </li>;
+                return <PokemonBasicData id={pokemon.name} />;
+            })}
+        </>
+    );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
