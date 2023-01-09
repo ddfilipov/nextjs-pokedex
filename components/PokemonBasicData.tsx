@@ -12,11 +12,12 @@ interface IPokemonBasicData {
     name: string;
     src: string;
     id: number;
+    types: string[];
 }
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: 20px auto;
+    grid-template-rows: 20px auto 20px;
     justify-items: center;
     border: 1px solid black;
     padding: 5px;
@@ -27,7 +28,11 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         console.log(res.data);
-        setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id });
+        const types = await res.data.types.map((type: any) => {
+            return type.type.name;
+        });
+        console.log("types: ", types);
+        setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
     };
 
     useEffect(() => {
@@ -46,6 +51,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                 unoptimized
                 priority
             />
+            <div>{pokeData?.types}</div>
         </Wrapper>
     );
     {
