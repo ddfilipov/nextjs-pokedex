@@ -14,6 +14,9 @@ interface IPokemonBasicData {
 }
 
 const Wrapper = styled.div`
+    display: grid;
+    grid-template-rows: 20px auto;
+    justify-items: center;
     border: 1px solid black;
     padding: 5px;
 `;
@@ -31,18 +34,18 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     }, []);
 
     return (
-            <Wrapper>
-                <h2>{pokeData?.name}</h2>
-                <Image
-                    src={pokeData?.src as string}
-                    alt={pokeData?.name as string}
-                    width={200}
-                    height={200}
-                    loader={imageLoader}
-                    unoptimized
-                    priority
-                />
-            </Wrapper>
+        <Wrapper>
+            <h2>{pokeData?.name}</h2>
+            <Image
+                src={pokeData?.src as string}
+                alt={pokeData?.name as string}
+                width={200}
+                height={200}
+                loader={imageLoader}
+                unoptimized
+                priority
+            />
+        </Wrapper>
     );
     {
     }
