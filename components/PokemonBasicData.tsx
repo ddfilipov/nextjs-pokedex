@@ -11,6 +11,7 @@ interface PokemonBasicDataProps {
 interface IPokemonBasicData {
     name: string;
     src: string;
+    id: number;
 }
 
 const Wrapper = styled.div`
@@ -26,7 +27,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         console.log(res.data);
-        setPokeData({ name: res.data.name, src: res.data.sprites.front_default });
+        setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id });
     };
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            <h2>{pokeData?.name}</h2>
+            <h2>{`#${pokeData?.id} ${pokeData?.name}`}</h2>
             <Image
                 src={pokeData?.src as string}
                 alt={pokeData?.name as string}
