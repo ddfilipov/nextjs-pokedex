@@ -41,7 +41,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            <h2>{`#${pokeData?.id} ${pokeData?.name}`}</h2>
+            <h2>{`#${pokeData?.id} ${pokeData && pokeData?.name.substring(0, 1).toUpperCase() + pokeData?.name.slice(1)}`}</h2>
             <Image
                 src={pokeData?.src as string}
                 alt={pokeData?.name as string}
