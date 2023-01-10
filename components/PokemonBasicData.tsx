@@ -51,7 +51,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                 unoptimized
                 priority
             />
-            <div>{pokeData?.types}</div>
+            <div>{pokeData?.types.toString()}</div>
         </Wrapper>
     );
     {
