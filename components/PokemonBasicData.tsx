@@ -23,6 +23,14 @@ const Wrapper = styled.div`
     padding: 5px;
 `;
 
+const TypeContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    border: 1px solid blue;
+    width: 100%;
+`;
+
 export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>();
     const getPokemonData = async (id: string) => {
@@ -35,13 +43,17 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
         setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
     };
 
+    const capitalizeFirstLetter = (word: string) => {};
+
     useEffect(() => {
         getPokemonData(id);
     }, []);
 
     return (
         <Wrapper>
-            <h2>{`#${pokeData?.id} ${pokeData && pokeData?.name.substring(0, 1).toUpperCase() + pokeData?.name.slice(1)}`}</h2>
+            <h2>{`#${pokeData?.id} ${
+                pokeData && pokeData?.name.substring(0, 1).toUpperCase() + pokeData?.name.slice(1)
+            }`}</h2>
             <Image
                 src={pokeData?.src as string}
                 alt={pokeData?.name as string}
@@ -51,7 +63,12 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                 unoptimized
                 priority
             />
-            <div>{pokeData?.types.toString()}</div>
+            {/* <div>{pokeData?.types.toString()}</div> */}
+            <TypeContainer>
+                {pokeData?.types.map((type) => {
+                    return <span>{type}</span>;
+                })}
+            </TypeContainer>
         </Wrapper>
     );
     {
