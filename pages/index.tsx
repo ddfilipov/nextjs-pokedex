@@ -21,6 +21,7 @@ const Wrapper = styled.div`
     width: 1200px;
     gap: 5px;
     padding: 5px;
+    place-content: center;
 `;
 
 export default function Home({ results }: IGetPokemon) {
