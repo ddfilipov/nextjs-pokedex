@@ -17,7 +17,7 @@ interface IPokemonBasicData {
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: 20px auto 20px;
+    grid-template-rows: 25px auto 25px;
     justify-items: center;
     border: 1px solid black;
     padding: 5px;
@@ -29,6 +29,7 @@ const TypeContainer = styled.div`
     place-content: center;
     column-gap: 10px;
     width: 100%;
+    align-items: center;
 `;
 
 export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
