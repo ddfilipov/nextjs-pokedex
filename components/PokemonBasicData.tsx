@@ -24,9 +24,10 @@ const Wrapper = styled.div`
 `;
 
 const TypeContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    column-gap: 10px;
     width: 100%;
 `;
 
