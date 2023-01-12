@@ -35,10 +35,11 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>();
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        console.log(res.data);
         const types = await res.data.types.map((type: any) => {
             return type.type.name;
         });
-        
+
         setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
     };
 
@@ -52,7 +53,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            <h2>{capitalizeFirstLetter(pokeData?.name)}</h2>
+            <h2>{`#${pokeData?.id} ${capitalizeFirstLetter(pokeData?.name)}`}</h2>
             <Image
                 src={pokeData?.src as string}
                 alt={pokeData?.name as string}
@@ -64,7 +65,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
             />
             <TypeContainer>
                 {pokeData?.types.map((type) => {
-                    return <span>{capitalizeFirstLetter(type)}</span>;
+                    return <span key={type}>{capitalizeFirstLetter(type)}</span>;
                 })}
             </TypeContainer>
         </Wrapper>
