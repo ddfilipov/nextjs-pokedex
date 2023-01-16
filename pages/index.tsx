@@ -33,6 +33,8 @@ export default function Home({ results }: IGetPokemon) {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
+            <button>PREVIOUS PAGE</button>
+            <button>NEXT PAGE</button>
         </MainContainer>
     );
 }
