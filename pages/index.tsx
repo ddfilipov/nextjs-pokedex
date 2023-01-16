@@ -4,6 +4,7 @@ import axios from "axios";
 import { IGetPokemon } from "../interfaces";
 import { PokemonBasicData } from "../components/PokemonBasicData";
 import styled from "styled-components";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ const MainContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 `;
 
 const Wrapper = styled.div`
@@ -25,6 +27,9 @@ const Wrapper = styled.div`
 `;
 
 export default function Home({ results }: IGetPokemon) {
+    const [offset, setOffset] = useState<number>(0);
+    const limit = 20;
+
     return (
         <MainContainer>
             <h1>Pokédex</h1>
