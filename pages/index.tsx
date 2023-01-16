@@ -26,9 +26,18 @@ const Wrapper = styled.div`
     place-content: center;
 `;
 
+const MINIMUMOFFSET: number = 0;
+
 export default function Home({ results }: IGetPokemon) {
     const [offset, setOffset] = useState<number>(0);
     const limit = 20;
+
+    const nextPage = () => {
+        setOffset(offset + limit);
+    };
+    const previousPage = () => {
+        offset > 0 ? setOffset(offset - limit) : null;
+    };
 
     useEffect(() => {
         console.log("offset:", offset);
@@ -42,8 +51,8 @@ export default function Home({ results }: IGetPokemon) {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
-            <button onClick={() => setOffset(offset - 20)}>PREVIOUS PAGE</button>
-            <button onClick={() => setOffset(offset + 20)}>NEXT PAGE</button>
+            <button onClick={previousPage}>PREVIOUS PAGE</button>
+            <button onClick={nextPage}>NEXT PAGE</button>
         </MainContainer>
     );
 }
