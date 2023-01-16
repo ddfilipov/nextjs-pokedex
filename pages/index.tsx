@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
 const MainContainer = styled.div`
     display: flex;
@@ -58,7 +59,7 @@ export default function Home({ results }: IGetPokemon) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const res = await axios.get("https://pokeapi.co/api/v2/pokemon");
+    const res = await axios.get(baseUrl);
     const { results }: IGetPokemon = await res.data;
 
     return { props: { results: results } };
