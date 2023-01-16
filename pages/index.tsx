@@ -4,7 +4,7 @@ import axios from "axios";
 import { IGetPokemon } from "../interfaces";
 import { PokemonBasicData } from "../components/PokemonBasicData";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +30,10 @@ export default function Home({ results }: IGetPokemon) {
     const [offset, setOffset] = useState<number>(0);
     const limit = 20;
 
+    useEffect(() => {
+        console.log("offset:", offset);
+    }, [offset]);
+
     return (
         <MainContainer>
             <h1>Pokédex</h1>
@@ -38,8 +42,8 @@ export default function Home({ results }: IGetPokemon) {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
-            <button>PREVIOUS PAGE</button>
-            <button>NEXT PAGE</button>
+            <button onClick={() => setOffset(offset - 20)}>PREVIOUS PAGE</button>
+            <button onClick={() => setOffset(offset + 20)}>NEXT PAGE</button>
         </MainContainer>
     );
 }
