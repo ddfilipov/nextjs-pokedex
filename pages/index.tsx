@@ -30,41 +30,48 @@ const Wrapper = styled.div`
 const MINIMUMOFFSET: number = 0;
 
 export default function Home({ results }: IGetPokemon) {
-    const [offset, setOffset] = useState<number>(20);
-    const [pokemons, setPokemons] = useState<Pokemon[]>(results);
     const limit = 20;
+    const [offset, setOffset] = useState<number>(0);
+    const [pokemons, setPokemons] = useState<Pokemon[]>(results);
 
-    const nextPage = () => {
+    const nextPage = async () => {
+        console.log("*** 1A - nextPage");
         setOffset(offset + limit);
-        loadPokemon(offset);
+        await loadPokemon(offset + limit);
     };
-    const previousPage = () => {
-        offset > 0 ? setOffset(offset - limit) : null;
-        loadPokemon(offset);
+    const previousPage = async () => {
+        console.log("*** 1B - previousPage");
+        if (offset > 0) {
+            console.log("*** 1B.1 - IF previousPage");
+            setOffset(offset - limit);
+
+            await loadPokemon(offset - limit);
+        }
+        // offset > 0 ? setOffset(offset - limit) : null;
     };
 
     const loadPokemon = async (searchFrom: number) => {
-        // console.log("hola estoy cargando los pokemon a partir del numero offset:", offset);
+        console.log("*** 2 - hola estoy cargando los pokemon a partir del numero offset:", offset);
         const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
-        // setPokemons((asd)=>[...asd, ...res.data.results]);
-        setPokemons((element)=>res.data.results)
-        console.log("*** ",pokemons);
+        setPokemons(res.data.results);
+        console.log("*** 4 - he hecho setPokemons, a ver pokemons:::", pokemons);
     };
 
     useEffect(() => {
-        // console.log("offset:", offset);
-    }, [offset]);
+        console.log("*** 3a - useEffect offset CAMBIANDO:", offset);
+        console.log("*** 3b - useEffect pokemons CAMBIANDO:", pokemons);
+    }, [offset, pokemons]);
 
     return (
         <MainContainer>
             <h1>Pokédex</h1>
+            <button onClick={previousPage}>PREVIOUS PAGE</button>
+            <button onClick={nextPage}>NEXT PAGE</button>
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
-            <button onClick={previousPage}>PREVIOUS PAGE</button>
-            <button onClick={nextPage}>NEXT PAGE</button>
         </MainContainer>
     );
 }
