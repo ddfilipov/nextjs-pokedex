@@ -36,18 +36,18 @@ export default function Home({ results }: IGetPokemon) {
 
     const nextPage = async () => {
         console.log("*** 1A - nextPage");
-        setOffset(offset + limit);
         await loadPokemon(offset + limit);
+        console.log("*** 5A - nextPage -> se ha hecho el loadPokemon");
+        setOffset(offset + limit);
+        console.log("*** 6A - nextPage -> hecho el setOffset(offset + limit)");
     };
     const previousPage = async () => {
         console.log("*** 1B - previousPage");
         if (offset > 0) {
             console.log("*** 1B.1 - IF previousPage");
-            setOffset(offset - limit);
-
             await loadPokemon(offset - limit);
+            setOffset(offset - limit);
         }
-        // offset > 0 ? setOffset(offset - limit) : null;
     };
 
     const loadPokemon = async (searchFrom: number) => {
