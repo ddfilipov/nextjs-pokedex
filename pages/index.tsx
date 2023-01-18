@@ -30,7 +30,8 @@ const Wrapper = styled.div`
 const MINIMUMOFFSET: number = 0;
 
 export default function Home({ results }: IGetPokemon) {
-    const [offset, setOffset] = useState<number>(0);
+    const [offset, setOffset] = useState<number>(20);
+    const [pokemons, setPokemons] = useState<IGetPokemon>({ results });
     const limit = 20;
 
     const nextPage = () => {
@@ -38,6 +39,12 @@ export default function Home({ results }: IGetPokemon) {
     };
     const previousPage = () => {
         offset > 0 ? setOffset(offset - limit) : null;
+    };
+
+    const loadPokemon = async () => {
+        const res = await axios.get(`${baseUrl}/`);
+
+        const { results }: IGetPokemon = await res.data;
     };
 
     useEffect(() => {
@@ -60,6 +67,8 @@ export default function Home({ results }: IGetPokemon) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await axios.get(baseUrl);
+    console.log("context:", context);
+
     const { results }: IGetPokemon = await res.data;
 
     return { props: { results: results } };
