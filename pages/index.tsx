@@ -4,7 +4,7 @@ import axios from "axios";
 import { IGetPokemon, Pokemon } from "../interfaces";
 import { PokemonBasicData } from "../components/PokemonBasicData";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
@@ -35,50 +35,37 @@ export default function Home({ results }: IGetPokemon) {
     const [pokemons, setPokemons] = useState<Pokemon[]>(results);
 
     const nextPage = async () => {
-        console.log("*** 1A - nextPage");
         await loadPokemon(offset + limit);
-        console.log("*** 5A - nextPage -> se ha hecho el loadPokemon");
         setOffset(offset + limit);
-        console.log("*** 6A - nextPage -> hecho el setOffset(offset + limit)");
     };
     const previousPage = async () => {
-        console.log("*** 1B - previousPage");
-        if (offset > 0) {
-            console.log("*** 1B.1 - IF previousPage");
+        if (offset > MINIMUMOFFSET) {
             await loadPokemon(offset - limit);
             setOffset(offset - limit);
         }
     };
 
     const loadPokemon = async (searchFrom: number) => {
-        console.log("*** 2 - hola estoy cargando los pokemon a partir del numero offset:", offset);
         const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
         setPokemons(res.data.results);
-        console.log("*** 4 - he hecho setPokemons, a ver pokemons:::", pokemons);
     };
-
-    useEffect(() => {
-        console.log("*** 3a - useEffect offset CAMBIANDO:", offset);
-        console.log("*** 3b - useEffect pokemons CAMBIANDO:", pokemons);
-    }, [offset, pokemons]);
 
     return (
         <MainContainer>
             <h1>Pokédex</h1>
-            <button onClick={previousPage}>PREVIOUS PAGE</button>
-            <button onClick={nextPage}>NEXT PAGE</button>
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
+            <button onClick={previousPage}>PREVIOUS PAGE</button>
+            <button onClick={nextPage}>NEXT PAGE</button>
         </MainContainer>
     );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await axios.get(baseUrl);
-    // console.log("context:", context);
 
     const { results }: IGetPokemon = await res.data;
 
