@@ -40,13 +40,14 @@ export default function Home({ results }: IGetPokemon) {
     };
     const previousPage = () => {
         offset > 0 ? setOffset(offset - limit) : null;
-        loadPokemon(20);
+        loadPokemon(offset);
     };
 
     const loadPokemon = async (searchFrom: number) => {
         // console.log("hola estoy cargando los pokemon a partir del numero offset:", offset);
-        const res = await axios.get(`${baseUrl}?offset=${0}&limit=${limit}`);
-        setPokemons((asd)=>[...asd, ...res.data.results]);
+        const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
+        // setPokemons((asd)=>[...asd, ...res.data.results]);
+        setPokemons((element)=>res.data.results)
         console.log("*** ",pokemons);
     };
 
