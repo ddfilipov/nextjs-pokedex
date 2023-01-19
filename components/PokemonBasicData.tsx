@@ -36,7 +36,6 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>();
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        // console.log(res.data);
         const types = await res.data.types.map((type: any) => {
             return type.type.name;
         });
