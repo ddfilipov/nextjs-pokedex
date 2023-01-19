@@ -4,5 +4,4 @@ export interface IGetPokemon {
 
 export interface Pokemon {
     name: string;
-    url: string;
 }
