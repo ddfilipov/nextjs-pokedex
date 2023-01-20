@@ -39,17 +39,13 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
         id: 1,
         types: ["defaultType1"],
     };
-
     const [pokeData, setPokeData] = useState<IPokemonBasicData>(defaultPokeData);
+
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        if (id === "bulbasaur") {
-            console.log("**** res.data:", res.data);
-        }
         const types = await res.data.types.map((type: any) => {
             return type.type.name;
         });
-
         setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
     };
 
