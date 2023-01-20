@@ -36,6 +36,9 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>();
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        if (id === "bulbasaur") {
+            console.log("**** res.data:", res.data);
+        }
         const types = await res.data.types.map((type: any) => {
             return type.type.name;
         });
@@ -52,23 +55,25 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     }, []);
 
     return (
-            <Wrapper>
-                <h2>{`#${pokeData?.id} ${capitalizeFirstLetter(pokeData?.name)}`}</h2>
-                <Image
-                    src={pokeData?.src as string}
-                    alt={pokeData?.name as string}
-                    width={200}
-                    height={200}
-                    loader={imageLoader}
-                    unoptimized
-                    priority
-                />
-                <TypeContainer>
-                    {pokeData?.types.map((type) => {
-                        return <span key={type}>{capitalizeFirstLetter(type)}</span>;
-                    })}
-                </TypeContainer>
-            </Wrapper>
+        <Wrapper>
+            <h2>{`#${pokeData?.id} ${capitalizeFirstLetter(pokeData?.name)}`}</h2>
+            <Image
+                src={pokeData && pokeData.src ? (pokeData.src) : ""}
+                alt={pokeData && pokeData.name ? (pokeData.name) : ""}
+                // src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png"}
+                // alt={""}
+                width={200}
+                height={200}
+                loader={imageLoader}
+                unoptimized
+                priority
+            />
+            <TypeContainer>
+                {pokeData?.types.map((type) => {
+                    return <span key={type}>{capitalizeFirstLetter(type)}</span>;
+                })}
+            </TypeContainer>
+        </Wrapper>
     );
     {
     }
