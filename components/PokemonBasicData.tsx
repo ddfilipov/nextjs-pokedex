@@ -59,7 +59,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            <h2>{`#${pokeData?.id} ${capitalizeFirstLetter(pokeData?.name)}`}</h2>
+            <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
             <Image src={pokeData.src} alt={pokeData.name} width={200} height={200} loader={imageLoader} unoptimized />
             <TypeContainer>
                 {pokeData?.types.map((type) => {
