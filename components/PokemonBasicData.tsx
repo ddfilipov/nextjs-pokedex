@@ -33,7 +33,14 @@ const TypeContainer = styled.div`
 `;
 
 export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
-    const [pokeData, setPokeData] = useState<IPokemonBasicData>();
+    const defaultPokeData: IPokemonBasicData = {
+        name: "defaultName",
+        src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        id: 1,
+        types: ["defaultType1"],
+    };
+
+    const [pokeData, setPokeData] = useState<IPokemonBasicData>(defaultPokeData);
     const getPokemonData = async (id: string) => {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         if (id === "bulbasaur") {
@@ -57,17 +64,7 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     return (
         <Wrapper>
             <h2>{`#${pokeData?.id} ${capitalizeFirstLetter(pokeData?.name)}`}</h2>
-            <Image
-                src={pokeData && pokeData.src ? (pokeData.src) : ""}
-                alt={pokeData && pokeData.name ? (pokeData.name) : ""}
-                // src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png"}
-                // alt={""}
-                width={200}
-                height={200}
-                loader={imageLoader}
-                unoptimized
-                priority
-            />
+            <Image src={pokeData.src} alt={pokeData.name} width={200} height={200} loader={imageLoader} unoptimized />
             <TypeContainer>
                 {pokeData?.types.map((type) => {
                     return <span key={type}>{capitalizeFirstLetter(type)}</span>;
