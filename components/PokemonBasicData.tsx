@@ -33,6 +33,8 @@ const TypeContainer = styled.div`
 `;
 
 export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const defaultPokeData: IPokemonBasicData = {
         name: "defaultName",
         src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
@@ -42,11 +44,13 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
     const [pokeData, setPokeData] = useState<IPokemonBasicData>(defaultPokeData);
 
     const getPokemonData = async (id: string) => {
+        setIsLoading(true);
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const types = await res.data.types.map((type: any) => {
             return type.type.name;
         });
         setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
+        setIsLoading(false);
     };
 
     const capitalizeFirstLetter = (word: string | undefined) => {
@@ -59,13 +63,26 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
-            <Image src={pokeData.src} alt={pokeData.name} width={200} height={200} loader={imageLoader} unoptimized />
-            <TypeContainer>
-                {pokeData?.types.map((type) => {
-                    return <span key={type}>{capitalizeFirstLetter(type)}</span>;
-                })}
-            </TypeContainer>
+            {isLoading ? (
+                <p>LOADING</p>
+            ) : (
+                <>
+                    <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
+                    <Image
+                        src={pokeData.src}
+                        alt={pokeData.name}
+                        width={200}
+                        height={200}
+                        loader={imageLoader}
+                        unoptimized
+                    />
+                    <TypeContainer>
+                        {pokeData?.types.map((type) => {
+                            return <span key={type}>{capitalizeFirstLetter(type)}</span>;
+                        })}
+                    </TypeContainer>
+                </>
+            )}
         </Wrapper>
     );
     {
