@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1200px;
+    max-width: 1200px;
     gap: 5px;
     padding: 5px;
     place-content: center;
