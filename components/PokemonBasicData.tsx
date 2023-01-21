@@ -21,6 +21,7 @@ const Wrapper = styled.div`
     justify-items: center;
     border: 1px solid black;
     padding: 5px;
+    min-height: 260px;
 `;
 
 const TypeContainer = styled.div`
@@ -63,10 +64,6 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
-            {isLoading ? (
-                <p>LOADING</p>
-            ) : (
-                <>
                     <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
                     <Image
                         src={pokeData.src}
@@ -81,8 +78,6 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                             return <span key={type}>{capitalizeFirstLetter(type)}</span>;
                         })}
                     </TypeContainer>
-                </>
-            )}
         </Wrapper>
     );
     {
