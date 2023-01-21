@@ -15,6 +15,7 @@ const MainContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 10px;
+    gap: 5px;
 `;
 
 const Wrapper = styled.div`
@@ -25,6 +26,17 @@ const Wrapper = styled.div`
     gap: 5px;
     padding: 5px;
     place-content: center;
+`;
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-basis: 100%;
+    button {
+        padding: 5px;
+        min-width: 150px;
+    }
 `;
 
 const MINIMUMOFFSET: number = 0;
@@ -58,8 +70,10 @@ export default function Home({ results }: IGetPokemon) {
                     return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
-            <button onClick={previousPage}>PREVIOUS PAGE</button>
-            <button onClick={nextPage}>NEXT PAGE</button>
+            <ButtonContainer>
+                <button onClick={previousPage}>PREVIOUS PAGE</button>
+                <button onClick={nextPage}>NEXT PAGE</button>
+            </ButtonContainer>
         </MainContainer>
     );
 }
