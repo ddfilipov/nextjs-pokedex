@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     padding: 5px;
     min-height: 260px;
     min-width: 200px;
+    place-content: center;
 `;
 
 const TypeContainer = styled.div`
