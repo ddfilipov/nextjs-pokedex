@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface PokemonBasicDataProps {
     id: string;
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
     border: 1px solid black;
     padding: 5px;
     min-height: 260px;
+    min-width: 200px;
 `;
 
 const TypeContainer = styled.div`
@@ -64,6 +66,10 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
 
     return (
         <Wrapper>
+            {isLoading ? (
+                <LoadingSpinner />
+            ) : (
+                <>
                     <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
                     <Image
                         src={pokeData.src}
@@ -78,6 +84,8 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                             return <span key={type}>{capitalizeFirstLetter(type)}</span>;
                         })}
                     </TypeContainer>
+                </>
+            )}
         </Wrapper>
     );
     {
