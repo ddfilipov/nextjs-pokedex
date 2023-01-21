@@ -88,7 +88,5 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
             )}
         </Wrapper>
     );
-    {
-    }
 };
 export default PokemonBasicData;
