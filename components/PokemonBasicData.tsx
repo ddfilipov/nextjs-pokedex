@@ -19,7 +19,7 @@ interface IPokemonBasicData {
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: 25px auto 25px;
+    grid-template-rows: auto 25px;
     justify-items: center;
     border: 1px solid black;
     padding: 5px;
@@ -31,6 +31,16 @@ const Wrapper = styled.div`
 const TypeContainer = styled.div`
     display: flex;
     flex-direction: row;
+    place-content: center;
+    column-gap: 10px;
+    width: 100%;
+    align-items: center;
+`;
+
+const TopCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
     place-content: center;
     column-gap: 10px;
     width: 100%;
@@ -73,15 +83,17 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
             ) : (
                 <>
                     <Link href={`${pokeData.id}`} key={pokeData.id}>
-                        <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
-                        <Image
-                            src={pokeData.src}
-                            alt={pokeData.name}
-                            width={200}
-                            height={200}
-                            loader={imageLoader}
-                            unoptimized
-                        />
+                        <TopCard>
+                            <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
+                            <Image
+                                src={pokeData.src}
+                                alt={pokeData.name}
+                                width={200}
+                                height={200}
+                                loader={imageLoader}
+                                unoptimized
+                            />
+                        </TopCard>
                     </Link>
                     <TypeContainer>
                         {pokeData?.types.map((type) => {
