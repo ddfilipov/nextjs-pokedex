@@ -5,7 +5,7 @@ import { IGetPokemon } from "../interfaces";
 import PokemonList from "../components/PokemonList";
 
 const inter = Inter({ subsets: ["latin"] });
-const baseUrl = "https://pokeapi.co/api/v2/pokemon";
+export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
 export default function Home({ results }: IGetPokemon) {
     return (
