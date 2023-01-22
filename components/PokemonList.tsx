@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../interfaces";
-import PokemonBasicData from "./PokemonBasicData";
+import PokemonCard from "./PokemonCard";
 
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
@@ -40,7 +40,7 @@ const ButtonContainer = styled.div`
 
 const MINIMUMOFFSET: number = 0;
 
-export const PokemonList = ({results} : IGetPokemon) => {
+export const PokemonList = ({ results }: IGetPokemon) => {
     const limit = 20;
     const [offset, setOffset] = useState<number>(0);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results);
@@ -66,7 +66,7 @@ export const PokemonList = ({results} : IGetPokemon) => {
             <h1>Pokédex</h1>
             <Wrapper>
                 {pokemons.map((pokemon) => {
-                    return <PokemonBasicData id={pokemon.name} key={pokemon.name} />;
+                    return <PokemonCard id={pokemon.name} key={pokemon.name} />;
                 })}
             </Wrapper>
             <ButtonContainer>

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import LoadingSpinner from "./LoadingSpinner";
 
-interface PokemonBasicDataProps {
+interface PokemonCardProps {
     id: string;
 }
 
@@ -47,7 +47,7 @@ const TopCard = styled.div`
     align-items: center;
 `;
 
-export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
+export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const defaultPokeData: IPokemonBasicData = {
@@ -105,4 +105,4 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
         </Wrapper>
     );
 };
-export default PokemonBasicData;
+export default PokemonCard;
