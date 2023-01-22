@@ -1,5 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
@@ -71,15 +72,17 @@ export const PokemonBasicData: FC<PokemonBasicDataProps> = ({ id }) => {
                 <LoadingSpinner />
             ) : (
                 <>
-                    <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
-                    <Image
-                        src={pokeData.src}
-                        alt={pokeData.name}
-                        width={200}
-                        height={200}
-                        loader={imageLoader}
-                        unoptimized
-                    />
+                    <Link href={`${pokeData.id}`} key={pokeData.id}>
+                        <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
+                        <Image
+                            src={pokeData.src}
+                            alt={pokeData.name}
+                            width={200}
+                            height={200}
+                            loader={imageLoader}
+                            unoptimized
+                        />
+                    </Link>
                     <TypeContainer>
                         {pokeData?.types.map((type) => {
                             return <span key={type}>{capitalizeFirstLetter(type)}</span>;
