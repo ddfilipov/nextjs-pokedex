@@ -30,6 +30,11 @@ const Wrapper = styled.div`
     color: #468847;
 `;
 
+interface ITypeStyles {
+    backgroundColor: string;
+    fontColor: string;
+}
+
 const TypeContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -37,6 +42,11 @@ const TypeContainer = styled.div`
     column-gap: 10px;
     width: 100%;
     align-items: center;
+`;
+
+const TypeSpan = styled.span<ITypeStyles>`
+    background-color: ${(props) => props.backgroundColor};
+    color: ${(props) => props.fontColor}; ;
 `;
 
 const TopCard = styled.div`
@@ -99,7 +109,11 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
                     </Link>
                     <TypeContainer>
                         {pokeData?.types.map((type) => {
-                            return <span key={type}>{capitalizeFirstLetter(type)}</span>;
+                            return (
+                                <TypeSpan key={type} backgroundColor={"red"} fontColor="blue">
+                                    {capitalizeFirstLetter(type)}
+                                </TypeSpan>
+                            );
                         })}
                     </TypeContainer>
                 </>
