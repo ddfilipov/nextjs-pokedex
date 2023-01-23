@@ -26,6 +26,8 @@ const Wrapper = styled.div`
     min-height: 260px;
     min-width: 200px;
     place-content: center;
+    background-color: #001015;
+    color: white;
 `;
 
 const TypeContainer = styled.div`
