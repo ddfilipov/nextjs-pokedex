@@ -11,7 +11,7 @@ export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 export default function Home({ results }: IGetPokemon) {
     return (
         <>
-        <GlobalStyle />
+        {/* <GlobalStyle /> */}
         <PokemonList results={results} />
         </>
     );
