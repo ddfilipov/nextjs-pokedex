@@ -8,5 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
 html  {
-    background : #F8F8F8;
+    background-color: #282c34;
 }`;
+
+export default GlobalStyle;
