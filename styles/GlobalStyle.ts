@@ -7,8 +7,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   
-html  {
+  
+html{
     background-color: #282c34;
-}`;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+`;
 
 export default GlobalStyle;

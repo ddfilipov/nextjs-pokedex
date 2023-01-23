@@ -15,6 +15,9 @@ const MainContainer = styled.div`
     justify-content: center;
     padding: 10px;
     gap: 5px;
+    h1 {
+        color: white;
+    }
 `;
 
 const Wrapper = styled.div`
