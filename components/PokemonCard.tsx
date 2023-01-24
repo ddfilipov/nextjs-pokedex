@@ -45,6 +45,7 @@ const TypeSpan = styled.span<ITypeColors>`
     background-color: ${(props) => `var(${props.backgroundColor})`};
     color: white;
     padding: 3px;
+    font-weight: bold;
 `;
 
 const TopCard = styled.div`
