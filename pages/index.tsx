@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import axios from "axios";
 import { IGetPokemon } from "../types/types";
 import PokemonList from "../components/PokemonList";
-import GlobalStyle from "../styles/GlobalStyle";
 
 const inter = Inter({ subsets: ["latin"] });
 export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
@@ -11,7 +10,6 @@ export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 export default function Home({ results }: IGetPokemon) {
     return (
         <>
-            {/* <GlobalStyle /> */}
             <PokemonList results={results} />
         </>
     );
