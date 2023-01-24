@@ -5,8 +5,8 @@ import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { typeStyles } from "../styles/const";
+import { PokeTypes } from "../types/types";
 import LoadingSpinner from "./LoadingSpinner";
-
 
 interface PokemonCardProps {
     id: string;
@@ -16,7 +16,7 @@ interface IPokemonBasicData {
     name: string;
     src: string;
     id: number;
-    types: string[];
+    types: PokeTypes[];
 }
 
 const Wrapper = styled.div`
@@ -47,9 +47,10 @@ const TypeContainer = styled.div`
 `;
 
 const TypeSpan = styled.span<ITypeStyles>`
-    background-color: ${(props) => `var(${props.backgroundColor}`};
-    color: var(--steel-background);
-    `;
+    background-color: ${(props) => `var(${props.backgroundColor})`};
+    color: ${(props) => `var(${props.fontColor})`};
+    padding: 3px;
+`;
 
 const TopCard = styled.div`
     display: flex;
@@ -68,7 +69,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
         name: "defaultName",
         src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
         id: 1,
-        types: ["defaultType1"],
+        types: ["grass"],
     };
     const [pokeData, setPokeData] = useState<IPokemonBasicData>(defaultPokeData);
 
@@ -112,9 +113,11 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
                     <TypeContainer>
                         {pokeData?.types.map((type) => {
                             return (
-                                // <TypeSpan key={type} backgroundColor={"--fairy-background"} fontColor="blue">
-                                // <TypeSpan key={type} backgroundColor={`${typeStyles}.${type}.fontColor`} fontColor="blue">
-                                <TypeSpan key={type} backgroundColor={typeStyles.bug.backgroundColor} fontColor="blue">
+                                <TypeSpan
+                                    key={type}
+                                    backgroundColor={typeStyles[type].backgroundColor}
+                                    fontColor={typeStyles[type].fontColor}
+                                >
                                     {capitalizeFirstLetter(type)}
                                 </TypeSpan>
                             );

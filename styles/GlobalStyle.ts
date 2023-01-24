@@ -28,24 +28,24 @@ html{
 	--dark-background: #705746;
 	--steel-background: #B7B7CE;
 	--fairy-background: #D685AD;
-	--normal-font:red;
-	--fire-font:red;
-	--water-font:red;
-	--electric-font:red;
-	--grass-font:red;
-	--ice-font:red;
-	--fighting-font: red;
-	--poison-font: red;
-	--ground-font: red;
-	--flying-font: red;
-	--psychic-font: red;
-	--bug-font: red;
-	--rock-font: red;
-	--ghost-font: red;
-	--dragon-font: red;
-	--dark-font: red;
-	--steel-font: red;
-	--fairy-font: red;
+	--normal-font:white;
+	--fire-font:white;
+	--water-font:white;
+	--electric-font:white;
+	--grass-font:white;
+	--ice-font:white;
+	--fighting-font: white;
+	--poison-font: white;
+	--ground-font: white;
+	--flying-font: white;
+	--psychic-font: white;
+	--bug-font: white;
+	--rock-font: white;
+	--ghost-font: white;
+	--dragon-font: white;
+	--dark-font: white;
+	--steel-font: white;
+	--fairy-font: white;
 }
 
 a{
