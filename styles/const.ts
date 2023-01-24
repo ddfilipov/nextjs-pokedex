@@ -5,7 +5,7 @@ export interface ITypeColors {
     fontColor: string;
 }
 
-const data: Record<PokeTypes, ITypeColors> = {
+const typeStyles: Record<PokeTypes, ITypeColors> = {
     normal: { backgroundColor: "--normal-background", fontColor: "--normal-font" },
     fire: { backgroundColor: "--fire-background", fontColor: "--fire-font" },
     water: { backgroundColor: "--water-background", fontColor: "--water-font" },

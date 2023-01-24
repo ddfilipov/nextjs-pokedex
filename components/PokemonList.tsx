@@ -1,7 +1,5 @@
 import axios from "axios";
-import { GetStaticProps } from "next";
-import Image from "next/image";
-import { FC, useEffect, useState } from "react";
+import {useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../types/types";
 import PokemonCard from "./PokemonCard";
