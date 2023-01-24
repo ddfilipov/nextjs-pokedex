@@ -48,7 +48,7 @@ const TypeContainer = styled.div`
 
 const TypeSpan = styled.span<ITypeStyles>`
     background-color: ${(props) => `var(${props.backgroundColor})`};
-    color: ${(props) => `var(${props.fontColor})`};
+    color: white;
     padding: 3px;
 `;
 
@@ -113,11 +113,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
                     <TypeContainer>
                         {pokeData?.types.map((type) => {
                             return (
-                                <TypeSpan
-                                    key={type}
-                                    backgroundColor={typeStyles[type].backgroundColor}
-                                    fontColor={typeStyles[type].fontColor}
-                                >
+                                <TypeSpan key={type} backgroundColor={typeStyles[type].backgroundColor}>
                                     {capitalizeFirstLetter(type)}
                                 </TypeSpan>
                             );

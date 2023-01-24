@@ -2,26 +2,25 @@ import { PokeTypes } from "../types/types";
 
 export interface ITypeColors {
     backgroundColor: string;
-    fontColor: string;
 }
 
 export const typeStyles: Record<PokeTypes, ITypeColors> = {
-    normal: { backgroundColor: "--normal-background", fontColor: "--normal-font" },
-    fire: { backgroundColor: "--fire-background", fontColor: "--fire-font" },
-    water: { backgroundColor: "--water-background", fontColor: "--water-font" },
-    electric: { backgroundColor: "--electric-background", fontColor: "--electric-font" },
-    grass: { backgroundColor: "--grass-background", fontColor: "--grass-font" },
-    ice: { backgroundColor: "--ice-background", fontColor: "--ice-font" },
-    fighting: { backgroundColor: "--fighting-background", fontColor: "--fighting-font" },
-    poison: { backgroundColor: "--poison-background", fontColor: "--poison-font" },
-    ground: { backgroundColor: "--ground-background", fontColor: "--ground-font" },
-    flying: { backgroundColor: "--flying-background", fontColor: "--flying-font" },
-    psychic: { backgroundColor: "--psychic-background", fontColor: "--psychic-font" },
-    bug: { backgroundColor: "--bug-background", fontColor: "--bug-font" },
-    rock: { backgroundColor: "--rock-background", fontColor: "--rock-font" },
-    ghost: { backgroundColor: "--ghost-background", fontColor: "--ghost-font" },
-    dragon: { backgroundColor: "--dragon-background", fontColor: "--dragon-font" },
-    dark: { backgroundColor: "--dark-background", fontColor: "--dark-font" },
-    steel: { backgroundColor: "--steel-background", fontColor: "--steel-font" },
-    fairy: { backgroundColor: "--fairy-background", fontColor: "--fairy-font" },
+    normal: { backgroundColor: "--normal-background"},
+    fire: { backgroundColor: "--fire-background"},
+    water: { backgroundColor: "--water-background"},
+    electric: { backgroundColor: "--electric-background"},
+    grass: { backgroundColor: "--grass-background"},
+    ice: { backgroundColor: "--ice-background"},
+    fighting: { backgroundColor: "--fighting-background"},
+    poison: { backgroundColor: "--poison-background"},
+    ground: { backgroundColor: "--ground-background"},
+    flying: { backgroundColor: "--flying-background"},
+    psychic: { backgroundColor: "--psychic-background"},
+    bug: { backgroundColor: "--bug-background"},
+    rock: { backgroundColor: "--rock-background"},
+    ghost: { backgroundColor: "--ghost-background"},
+    dragon: { backgroundColor: "--dragon-background"},
+    dark: { backgroundColor: "--dark-background"},
+    steel: { backgroundColor: "--steel-background"},
+    fairy: { backgroundColor: "--fairy-background"},
 };

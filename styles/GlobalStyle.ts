@@ -28,24 +28,6 @@ html{
 	--dark-background: #705746;
 	--steel-background: #B7B7CE;
 	--fairy-background: #D685AD;
-	--normal-font:white;
-	--fire-font:white;
-	--water-font:white;
-	--electric-font:white;
-	--grass-font:white;
-	--ice-font:white;
-	--fighting-font: white;
-	--poison-font: white;
-	--ground-font: white;
-	--flying-font: white;
-	--psychic-font: white;
-	--bug-font: white;
-	--rock-font: white;
-	--ghost-font: white;
-	--dragon-font: white;
-	--dark-font: white;
-	--steel-font: white;
-	--fairy-font: white;
 }
 
 a{
