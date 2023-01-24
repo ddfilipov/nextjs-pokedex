@@ -1,9 +1,11 @@
+import { PokeTypes } from "../types/types";
+
 export interface ITypeColors {
     backgroundColor: string;
     fontColor: string;
 }
 
-const data: Record<string, ITypeColors> = {
+const data: Record<PokeTypes, ITypeColors> = {
     normal: { backgroundColor: "--normal-background", fontColor: "--normal-font" },
     fire: { backgroundColor: "--fire-background", fontColor: "--fire-font" },
     water: { backgroundColor: "--water-background", fontColor: "--water-font" },
