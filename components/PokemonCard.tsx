@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { typeStyles } from "../styles/const";
+import { ITypeColors, typeStyles } from "../styles/const";
 import { PokeTypes } from "../types/types";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -32,11 +32,6 @@ const Wrapper = styled.div`
     color: #468847;
 `;
 
-interface ITypeStyles {
-    backgroundColor: string;
-    fontColor: string;
-}
-
 const TypeContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -46,7 +41,7 @@ const TypeContainer = styled.div`
     align-items: center;
 `;
 
-const TypeSpan = styled.span<ITypeStyles>`
+const TypeSpan = styled.span<ITypeColors>`
     background-color: ${(props) => `var(${props.backgroundColor})`};
     color: white;
     padding: 3px;
