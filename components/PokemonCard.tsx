@@ -24,12 +24,13 @@ const Wrapper = styled.div`
     grid-template-rows: auto 25px;
     justify-items: center;
     border: 1px solid black;
-    padding: 5px;
+    padding: 10px;
     min-height: 260px;
     min-width: 200px;
     place-content: center;
     background-color: #001015;
     color: #468847;
+    border-radius: 10px;
 `;
 
 const TypeContainer = styled.div`
