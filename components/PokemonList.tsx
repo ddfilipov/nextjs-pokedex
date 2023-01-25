@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../types/types";
 import PokemonCard from "./PokemonCard";
@@ -39,6 +39,16 @@ const ButtonContainer = styled.div`
     }
 `;
 
+const ButtonStyled = styled.button`
+    border-radius: 10px;
+    border: 2px solid red;
+    height: 50px;
+    background-color: #001015;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+`;
+
 const MINIMUMOFFSET: number = 0;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
@@ -71,8 +81,8 @@ export const PokemonList = ({ results }: IGetPokemon) => {
                 })}
             </Wrapper>
             <ButtonContainer>
-                <button onClick={previousPage}>PREVIOUS PAGE</button>
-                <button onClick={nextPage}>NEXT PAGE</button>
+                <ButtonStyled onClick={previousPage}>PREVIOUS PAGE</ButtonStyled>
+                <ButtonStyled onClick={nextPage}>NEXT PAGE</ButtonStyled>
             </ButtonContainer>
         </MainContainer>
     );
