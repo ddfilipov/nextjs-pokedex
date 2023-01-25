@@ -47,6 +47,7 @@ const ButtonStyled = styled.button`
     color: white;
     font-weight: bold;
     font-size: 1rem;
+    cursor: pointer;
 `;
 
 const MINIMUMOFFSET: number = 0;
