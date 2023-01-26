@@ -6,7 +6,7 @@ import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { baseUrl } from ".";
 import imageLoader from "../imageLoader";
-import { Pokemon } from "../types/types";
+import { Pokemon, IGetPokemon } from "../types/types";
 
 interface PokemonCardProps {
     id: string;
@@ -61,6 +61,16 @@ export const PokemonData = ({ name }: Pokemon) => {
 export default PokemonData;
 
 export async function getStaticPaths() {
+    const res = await axios.get(baseUrl);
+    const { results }: IGetPokemon = await res.data;
+
+    console.log("a ver res.data:", res.data);
+    const pokemons = results.map((pokemon) => {
+        return pokemon.id;
+    });
+
+    console.log("map de pokemons:", pokemons);
+
     return {
         paths: [{ params: { id: "1" } }],
         fallback: false,
@@ -69,7 +79,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await axios.get(baseUrl + "/" + context.params?.id);
-    console.log("a ver ese res.data:", res.data);
+    // console.log("a ver ese res.data:", res.data);
     const { name }: Pokemon = await res.data;
 
     return { props: { name } };
