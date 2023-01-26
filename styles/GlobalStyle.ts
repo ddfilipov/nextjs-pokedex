@@ -28,6 +28,7 @@ html{
 	--dark-background: #705746;
 	--steel-background: #B7B7CE;
 	--fairy-background: #D685AD;
+	--secondary-color: #D16f51;
 }
 
 a{
