@@ -77,7 +77,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
 
     return (
         <MainContainer>
-            <TitleStyled>Pokédex</TitleStyled>
+            <TitleStyled>NextjsDex</TitleStyled>
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonCard id={pokemon.name} key={pokemon.name} />;
