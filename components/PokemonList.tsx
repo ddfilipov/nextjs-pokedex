@@ -38,7 +38,7 @@ const ButtonContainer = styled.div`
 
 const ButtonStyled = styled.button`
     border-radius: 10px;
-    border: 2px solid #d16f51;
+    border: 2px solid var(--secondary-color);
     height: 50px;
     background-color: #001015;
     color: white;
@@ -49,7 +49,7 @@ const ButtonStyled = styled.button`
 
 const TitleStyled = styled.h1`
     font-size: 3rem;
-    color: #d16f51;
+    color: var(--secondary-color);
 `;
 
 const MINIMUMOFFSET: number = 0;
