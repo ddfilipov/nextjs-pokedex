@@ -6,6 +6,7 @@ import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { baseUrl } from ".";
 import imageLoader from "../imageLoader";
+import { Pokemon } from "../types/types";
 
 interface PokemonCardProps {
     id: string;
@@ -48,20 +49,20 @@ const TopCard = styled.div`
     align-items: center;
 `;
 
-export const PokemonData = () => {
+export const PokemonData = ({ name }: Pokemon) => {
     return (
         <div>
-            <h1>POKEMON NAME</h1>
+            <h1>POKEMON NAME: {name}</h1>
             <p>POKEMON DATA</p>
         </div>
     );
 };
 export default PokemonData;
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//     const res = await axios.get(baseUrl);
+export const getStaticProps: GetStaticProps = async (context) => {
+    const res = await axios.get(baseUrl + "/" + context.params?.id);
 
-//     const { results }: IGetPokemon = await res.data;
+    const { name }: Pokemon = await res.data;
 
-//     return { props: { results: results } };
-// };
+    return { props: { results: name } };
+};
