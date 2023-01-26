@@ -13,9 +13,6 @@ const MainContainer = styled.div`
     justify-content: center;
     padding: 10px;
     gap: 5px;
-    h1 {
-        color: white;
-    }
 `;
 
 const Wrapper = styled.div`
@@ -50,6 +47,11 @@ const ButtonStyled = styled.button`
     cursor: pointer;
 `;
 
+const TitleStyled = styled.h1`
+    font-size: 3rem;
+    color: #d16f51;
+`;
+
 const MINIMUMOFFSET: number = 0;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
@@ -75,7 +77,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
 
     return (
         <MainContainer>
-            <h1>Pokédex</h1>
+            <TitleStyled>Pokédex</TitleStyled>
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonCard id={pokemon.name} key={pokemon.name} />;
