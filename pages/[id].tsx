@@ -50,6 +50,7 @@ const TopCard = styled.div`
 `;
 
 export const PokemonData = ({ name }: Pokemon) => {
+    console.log("entrando en PokemonData con name:", name);
     return (
         <div>
             <h1>POKEMON NAME: {name}</h1>
@@ -59,10 +60,17 @@ export const PokemonData = ({ name }: Pokemon) => {
 };
 export default PokemonData;
 
+export async function getStaticPaths() {
+    return {
+        paths: [{ params: { id: "1" } }],
+        fallback: false,
+    };
+}
+
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await axios.get(baseUrl + "/" + context.params?.id);
-
+    console.log("a ver ese res.data:", res.data);
     const { name }: Pokemon = await res.data;
 
-    return { props: { results: name } };
+    return { props: { name } };
 };
