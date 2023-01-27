@@ -12,7 +12,6 @@ interface PokemonCardProps {
     id: string;
 }
 
-
 const Wrapper = styled.div`
     display: grid;
     grid-template-rows: auto 25px;
@@ -88,7 +87,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
                 <LoadingSpinner />
             ) : (
                 <>
-                    <Link href={`${pokeData.name}`} key={pokeData.id}>
+                    <Link href={`pokemon/${pokeData.name}`} key={pokeData.id}>
                         <TopCard>
                             <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
                             <Image

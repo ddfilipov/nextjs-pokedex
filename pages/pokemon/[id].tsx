@@ -1,8 +1,8 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import styled from "styled-components";
-import { baseUrl } from ".";
-import { Pokemon, IGetPokemon, IPokemonBasicData } from "../types/types";
+import { baseUrl } from "..";
+import { Pokemon, IGetPokemon, IPokemonBasicData } from "../../types/types";
 
 export const PokemonData = ({ name, id }: IPokemonBasicData) => {
     return (
