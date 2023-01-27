@@ -14,6 +14,20 @@ export interface IPokemonBasicData {
     types: PokeTypes[];
 }
 
+export interface IPokemonStat {
+    id: number;
+    name: string;
+}
+
+export interface IPokemonStats {
+    stat: IPokemonStat;
+    base_stat: number;
+}
+
+export interface IPokemonExtendedData extends IPokemonBasicData {
+    stats: IPokemonStats;
+}
+
 export type PokeTypes =
     | "normal"
     | "fire"
