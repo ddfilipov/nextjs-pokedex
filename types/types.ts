@@ -7,6 +7,13 @@ export interface Pokemon {
     name: string;
 }
 
+export interface IPokemonBasicData {
+    name: string;
+    src: string;
+    id: number;
+    types: PokeTypes[];
+}
+
 export type PokeTypes =
     | "normal"
     | "fire"

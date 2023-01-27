@@ -5,19 +5,13 @@ import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { ITypeColors, typeStyles } from "../styles/const";
-import { PokeTypes } from "../types/types";
+import { IPokemonBasicData, PokeTypes } from "../types/types";
 import LoadingSpinner from "./LoadingSpinner";
 
 interface PokemonCardProps {
     id: string;
 }
 
-interface IPokemonBasicData {
-    name: string;
-    src: string;
-    id: number;
-    types: PokeTypes[];
-}
 
 const Wrapper = styled.div`
     display: grid;
