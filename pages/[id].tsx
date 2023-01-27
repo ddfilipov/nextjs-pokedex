@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -50,11 +50,9 @@ const TopCard = styled.div`
     align-items: center;
 `;
 
-export const PokemonData = ({ name }: Pokemon) => {
-    const router = useRouter();
-    const { pageId } = router.query;
-
+export const PokemonData = ({ name, id }: IPokemonBasicData) => {
     console.log("entrando en PokemonData con name:", name);
+    console.log("entrando en PokemonData con id:", id);
     return (
         <div>
             <h1>POKEMON NAME: {name}</h1>
@@ -64,28 +62,40 @@ export const PokemonData = ({ name }: Pokemon) => {
 };
 export default PokemonData;
 
-// export async function getStaticPaths() {
-//     const res = await axios.get(baseUrl);
-//     const { results }: IGetPokemon = await res.data;
+export const getStaticPaths: GetStaticPaths = async () => {
+    const res = await axios.get(baseUrl);
+    const { results }: IGetPokemon = await res.data;
 
-//     console.log("a ver res.data:", res.data);
-//     const pokemons = results.map((pokemon) => {
-//         return pokemon.id;
-//     });
+    // console.log("a ver res.data:", res.data);
+    // console.log("xxxxxxxxxxx a ver results:", results);
+    const pokemons = results.map((pokemon) => {
+        console.log("checking current pokemon:", pokemon);
+        return pokemon.name;
+    });
 
-//     // console.log("map de pokemons:", pokemons);
+    console.log("pokemons:", pokemons);
+    console.log("pokemons[0]:", pokemons[0]);
 
-//     return {
-//         paths: [{ params: { id: "1" } }],
-//         fallback: false,
-//     };
-// }
+    const helper = ["1", "2", "3", "4", "5"];
+    return {
+        paths: results.map((pokemon) => {
+            const pokemonName = pokemon.name;
+            return {
+                params: {
+                    helper
+                },
+            };
+        }),
+        // paths: [{ params: pokemons[0] }],
+        fallback: false,
+    };
+};
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//     console.log("sacando context.params?.id:", context.params?.id)
-//     const res = await axios.get(baseUrl + "/" + context.params?.id);
-//     // console.log("a ver ese res.data:", res.data);
-//     const { name }: Pokemon = await res.data;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    console.log("sacando context.params?.id:", params?.id);
+    const res = await axios.get(baseUrl + "/" + params?.id);
+    // console.log("a ver ese res.data:", res.data);
+    const { name }: Pokemon = await res.data;
 
-//     return { props: { name } };
-// };
+    return { props: { name } };
+};

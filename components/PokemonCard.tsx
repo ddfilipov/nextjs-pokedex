@@ -94,7 +94,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
                 <LoadingSpinner />
             ) : (
                 <>
-                    <Link href={`${pokeData.id}`} key={pokeData.id}>
+                    <Link href={`${pokeData.name}`} key={pokeData.id}>
                         <TopCard>
                             <h2>{`#${pokeData.id} ${capitalizeFirstLetter(pokeData.name)}`}</h2>
                             <Image
