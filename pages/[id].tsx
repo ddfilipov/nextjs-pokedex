@@ -78,11 +78,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     const helper = ["1", "2", "3", "4", "5"];
     return {
+        paths: [{ params: { id: "bulbasaur" } }],
+        fallback: false,
+    };
+    return {
         paths: results.map((pokemon) => {
             const pokemonName = pokemon.name;
             return {
                 params: {
-                    helper
+                    helper,
                 },
             };
         }),
