@@ -7,6 +7,7 @@ export const PokemonData = ({ name, id }: IPokemonBasicData) => {
     return (
         <div>
             <h1>POKEMON NAME: {name}</h1>
+            <h1>POKEMON id: {id}</h1>
             <p>POKEMON DATA</p>
         </div>
     );
@@ -28,10 +29,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    console.log("checking params.id:", params?.id);
     const res = await axios.get(baseUrl + "/" + params?.id);
-    console.log("a ver ese res.data:", res.data);
+    // console.log("a ver ese res.data:", res.data);
 
-    const { name }: Pokemon = await res.data;
+    const { name, id }: IPokemonBasicData = await res.data;
 
-    return { props: { name } };
+    return { props: { name, id} };
 };
