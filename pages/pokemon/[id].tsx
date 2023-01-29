@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         return type.type.name;
     });
 
-    const { name, id, src }: IPokemonBasicData = await res.data;
+    const { name, id }: IPokemonBasicData = await res.data;
 
-    return { props: { name, id, types } };
+    return { props: { name, id, types, src: res.data.sprites.front_default } };
 };
