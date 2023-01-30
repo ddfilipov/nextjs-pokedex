@@ -1,6 +1,8 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
 import { baseUrl } from "..";
+import imageLoader from "../../imageLoader";
 import { Pokemon, IGetPokemon, IPokemonBasicData } from "../../types/types";
 
 export const PokemonData = ({ name, id, types, src }: IPokemonBasicData) => {
@@ -9,7 +11,14 @@ export const PokemonData = ({ name, id, types, src }: IPokemonBasicData) => {
             <h1>POKEMON NAME: {name}</h1>
             <h1>POKEMON id: {id}</h1>
             <h1>POKEMON types: {types}</h1>
-            <h1>POKEMON src: {src}</h1>
+                            <Image
+                                src={src}
+                                alt={name}
+                                width={200}
+                                height={200}
+                                loader={imageLoader}
+                                unoptimized
+                            />
             <p>POKEMON DATA</p>
         </div>
     );
