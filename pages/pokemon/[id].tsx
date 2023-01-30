@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import { baseUrl } from "..";
 import imageLoader from "../../imageLoader";
-import { Pokemon, IGetPokemon, IPokemonBasicData } from "../../types/types";
+import { IGetPokemon, IPokemonBasicData } from "../../types/types";
 
 export const PokemonData = ({ name, id, types, src }: IPokemonBasicData) => {
     return (
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     console.log("checking params.id:", params?.id);
     const res = await axios.get(baseUrl + "/" + params?.id);
-    // console.log("a ver ese res.data:", res.data);
+    
     console.log("res.data.name:", res.data.name);
     console.log("res.data.src:", res.data.src);
     console.log("res.data.id:", res.data.id);
