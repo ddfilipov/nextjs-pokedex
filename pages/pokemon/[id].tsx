@@ -2,28 +2,14 @@ import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import { baseUrl } from "..";
+import PokemonData from "../../components/PokemonData";
 import imageLoader from "../../imageLoader";
 import { IGetPokemon, IPokemonBasicData } from "../../types/types";
 
-export const PokemonData = ({ name, id, types, src }: IPokemonBasicData) => {
-    return (
-        <div>
-            <h1>POKEMON NAME: {name}</h1>
-            <h1>POKEMON id: {id}</h1>
-            <h1>POKEMON types: {types}</h1>
-                            <Image
-                                src={src}
-                                alt={name}
-                                width={200}
-                                height={200}
-                                loader={imageLoader}
-                                unoptimized
-                            />
-            <p>POKEMON DATA</p>
-        </div>
-    );
+export const Pokemon = ({ name, id, types, src }: IPokemonBasicData) => {
+    return <PokemonData name={name} id={id} types={types} src={src} />;
 };
-export default PokemonData;
+export default Pokemon;
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const res = await axios.get(baseUrl);
@@ -42,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     console.log("checking params.id:", params?.id);
     const res = await axios.get(baseUrl + "/" + params?.id);
-    
+
     console.log("res.data.name:", res.data.name);
     console.log("res.data.src:", res.data.src);
     console.log("res.data.id:", res.data.id);
