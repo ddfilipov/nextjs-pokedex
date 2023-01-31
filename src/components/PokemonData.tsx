@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 import imageLoader from "../imageLoader";
+import GlobalStyle from "../styles/GlobalStyle";
 import { IPokemonBasicData } from "../types/types";
 
 export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => {
