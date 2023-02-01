@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -6,8 +6,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-  
-  
+   
 html{
     background-color: #282c34;
 	--normal-background: #A8A77A;
@@ -39,3 +38,7 @@ a{
 `;
 
 export default GlobalStyle;
+
+const MainAreaContainer = styled.div`
+	
+`
