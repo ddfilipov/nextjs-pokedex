@@ -1,11 +1,13 @@
 import type { AppProps } from "next/app";
-import GlobalStyle from "../styles/GlobalStyle";
+import GlobalStyle, { MainAreaContainer } from "../styles/GlobalStyle";
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <GlobalStyle />
-            <Component {...pageProps} />
+            <MainAreaContainer>
+                <Component {...pageProps} />
+            </MainAreaContainer>
         </>
     );
 }

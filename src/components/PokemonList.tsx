@@ -6,15 +6,6 @@ import PokemonCard from "./PokemonCard";
 
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
-const MainContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 5px;
-`;
-
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -76,7 +67,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     };
 
     return (
-        <MainContainer>
+        <>
             <TitleStyled>NextjsDex</TitleStyled>
             <Wrapper>
                 {pokemons.map((pokemon) => {
@@ -87,7 +78,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
                 <ButtonStyled onClick={previousPage}>PREVIOUS PAGE</ButtonStyled>
                 <ButtonStyled onClick={nextPage}>NEXT PAGE</ButtonStyled>
             </ButtonContainer>
-        </MainContainer>
+        </>
     );
 };
 export default PokemonList;
