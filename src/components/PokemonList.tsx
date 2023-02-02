@@ -41,6 +41,7 @@ const ButtonStyled = styled.button`
 const TitleStyled = styled.h1`
     font-size: 3rem;
     color: var(--secondary-color);
+    color: white;
 `;
 
 const MINIMUMOFFSET: number = 0;

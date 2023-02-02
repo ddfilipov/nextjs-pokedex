@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     min-width: 200px;
     place-content: center;
     background-color: #001015;
-    color: #468847;
+    color: white;
     border-radius: 10px;
 `;
 
