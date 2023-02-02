@@ -46,7 +46,8 @@ export const MainAreaContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-	min-height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
     padding: 10px;
     gap: 5px;
 `;
