@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 1200px;
-    gap: 5px;
+    gap: 10px;
     padding: 5px;
     place-content: center;
 `;

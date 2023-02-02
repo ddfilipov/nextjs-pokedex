@@ -40,6 +40,7 @@ const TypeSpan = styled.span<ITypeColors>`
     color: white;
     padding: 3px;
     font-weight: bold;
+    border-radius: 5px;
 `;
 
 const TopCard = styled.div`
