@@ -31,7 +31,7 @@ const ButtonStyled = styled.button`
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
     height: 50px;
-    background-color: #001015;
+    background-color: var(--dark-color);
     color: white;
     font-weight: bold;
     font-size: 1rem;

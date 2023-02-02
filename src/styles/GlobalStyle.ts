@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
    
 html{
     background-color: #282c34;
+	// types variables
 	--normal-background: #A8A77A;
 	--fire-background: #EE8130;
 	--water-background: #6390F0;
@@ -27,7 +28,9 @@ html{
 	--dark-background: #705746;
 	--steel-background: #B7B7CE;
 	--fairy-background: #D685AD;
+	// app styles
 	--secondary-color: #D16f51;
+	--dark-color: #001015
 }
 
 a{
