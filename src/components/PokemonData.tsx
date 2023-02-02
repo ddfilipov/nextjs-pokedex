@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
@@ -12,8 +13,13 @@ const Wrapper = styled.div`
 `;
 
 export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => {
+    const router = useRouter();
+
     return (
         <Wrapper>
+            <button type="button" onClick={() => router.back()}>
+                BACK
+            </button>
             <h1>{name}</h1>
             <h1>{id}</h1>
             <h1>{types}</h1>
