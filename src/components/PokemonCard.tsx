@@ -41,6 +41,8 @@ const TypeSpan = styled.span<ITypeColors>`
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
+    min-width: 60px;
+    text-align: center;
 `;
 
 const TopCard = styled.div`
