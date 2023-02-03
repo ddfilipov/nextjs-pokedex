@@ -6,21 +6,21 @@ import imageLoader from "../imageLoader";
 import { IPokemonBasicData } from "../types/types";
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
     max-width: 1200px;
     border: 1px solid white;
     padding: 10px;
     background-color: var(--dark-color);
     color: white;
-    max-width: 1200px;
+    min-width: 1200px;
 `;
 const PictureWrapper = styled.div`
     display: flex;
     background-color: red;
     width: 100%;
-    max-width: 250px;
     height: 200px;
 `;
 const InfoWrapper = styled.div`
@@ -32,7 +32,7 @@ const InfoWrapper = styled.div`
 `;
 const MovesWrapper = styled.div`
     display: flex;
-    flex-basis: 100%;
+    grid-area: 2 / 1 / 2 / 3;
     background-color: green;
     width: 500px;
     height: 500px;
