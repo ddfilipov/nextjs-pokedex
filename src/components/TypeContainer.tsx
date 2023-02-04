@@ -13,7 +13,6 @@ const Wrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 10px;
-    width: 100%;
     align-items: center;
 `;
 
