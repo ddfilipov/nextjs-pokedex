@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
 import { FC } from "react";
 import styled from "styled-components";
 import { ITypeColors, typeStyles } from "../styles/const";
-import { IPokemonBasicData, PokeTypes } from "../types/types";
+import { PokeTypes } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 
 interface TypeContainerProps {
@@ -12,7 +11,7 @@ interface TypeContainerProps {
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
-    place-content: center;
+    flex-wrap: wrap;
     column-gap: 10px;
     width: 100%;
     align-items: center;
@@ -29,8 +28,6 @@ const TypeSpan = styled.span<ITypeColors>`
 `;
 
 export const TypeContainer: FC<TypeContainerProps> = ({ types }) => {
-    const router = useRouter();
-
     return (
         <Wrapper>
             {types.map((type) => {

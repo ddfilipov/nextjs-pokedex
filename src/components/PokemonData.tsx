@@ -5,6 +5,7 @@ import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { IPokemonBasicData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
+import TypeContainer from "./TypeContainer";
 
 const Wrapper = styled.div`
     display: grid;
@@ -30,7 +31,6 @@ const InfoWrapper = styled.div`
     flex-direction: column;
     border: 1px solid white;
     width: auto;
-    /* min-width: 350px; */
     padding: 10px;
 `;
 const MovesWrapper = styled.div`
@@ -52,7 +52,7 @@ export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => 
                 <h1>
                     #{id} {capitalizeFirstLetter(name)}
                 </h1>
-                <h1>{types}</h1>
+                <TypeContainer types={types} />
             </InfoWrapper>
             <PictureWrapper>
                 <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
