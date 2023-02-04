@@ -4,6 +4,7 @@ import { FC } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { IPokemonBasicData } from "../types/types";
+import { capitalizeFirstLetter } from "../utils/funcs";
 
 const Wrapper = styled.div`
     display: grid;
@@ -19,10 +20,10 @@ const Wrapper = styled.div`
 `;
 const PictureWrapper = styled.div`
     border: 1px solid white;
+    padding: 10px;
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 200px;
 `;
 const InfoWrapper = styled.div`
     display: flex;
@@ -30,7 +31,7 @@ const InfoWrapper = styled.div`
     border: 1px solid white;
     width: auto;
     /* min-width: 350px; */
-    height: 200px;
+    padding: 10px;
 `;
 const MovesWrapper = styled.div`
     display: flex;
@@ -39,6 +40,7 @@ const MovesWrapper = styled.div`
     border: 1px solid white;
     width: auto;
     height: 500px;
+    padding: 10px;
 `;
 
 export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => {
@@ -47,8 +49,9 @@ export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => 
     return (
         <Wrapper>
             <InfoWrapper>
-                <h1>{name}</h1>
-                <h1>{id}</h1>
+                <h1>
+                    #{id} {capitalizeFirstLetter(name)}
+                </h1>
                 <h1>{types}</h1>
             </InfoWrapper>
             <PictureWrapper>

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { ITypeColors, typeStyles } from "../styles/const";
 import { IPokemonBasicData, PokeTypes } from "../types/types";
+import { capitalizeFirstLetter } from "../utils/funcs";
 import LoadingSpinner from "./LoadingSpinner";
 
 interface PokemonCardProps {
@@ -73,10 +74,6 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
         });
         setPokeData({ name: res.data.name, src: res.data.sprites.front_default, id: res.data.id, types: types });
         setIsLoading(false);
-    };
-
-    const capitalizeFirstLetter = (word: string | undefined) => {
-        return word ? word.substring(0, 1).toUpperCase() + word.slice(1) : null;
     };
 
     useEffect(() => {
