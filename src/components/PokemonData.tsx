@@ -43,16 +43,18 @@ export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => 
 
     return (
         <Wrapper>
-            <InfoWrapper>General info</InfoWrapper>
-            <PictureWrapper>Picture</PictureWrapper>
+            <InfoWrapper>
+                <h1>{name}</h1>
+                <h1>{id}</h1>
+                <h1>{types}</h1>
+            </InfoWrapper>
+            <PictureWrapper>
+                <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
+            </PictureWrapper>
             <MovesWrapper>Moves/TMS</MovesWrapper>
             {/* <button type="button" onClick={() => router.back()}>
                 BACK
-            </button>
-            <h1>{name}</h1>
-            <h1>{id}</h1>
-            <h1>{types}</h1>
-            <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized /> */}
+            </button>*/}
         </Wrapper>
     );
 };
