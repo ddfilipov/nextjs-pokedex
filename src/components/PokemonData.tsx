@@ -5,6 +5,7 @@ import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { IPokemonBasicData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
+import MoveList from "./MoveList";
 import TypeContainer from "./TypeContainer";
 
 const Wrapper = styled.div`
@@ -57,7 +58,10 @@ export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => 
             <PictureWrapper>
                 <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
             </PictureWrapper>
-            <MovesWrapper>Moves/TMS</MovesWrapper>
+            <MovesWrapper>
+                <MoveList />
+                <MoveList />
+            </MovesWrapper>
             {/* <button type="button" onClick={() => router.back()}>
                 BACK
             </button>*/}
