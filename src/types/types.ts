@@ -26,7 +26,7 @@ export interface IPokemonStats {
 
 export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
-    moves: PokemonMoves[];
+    moves: PokemonMove[];
 }
 
 export type PokeTypes =
@@ -49,6 +49,11 @@ export type PokeTypes =
     | "steel"
     | "fairy";
 
-export interface PokemonMoves {
+export interface PokemonMove {
+    move: string;
+}
+
+interface NameApiResource {
     name: string;
+    // TODO: should have url: string later
 }

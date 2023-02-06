@@ -1,6 +1,7 @@
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { IPokemonBasicData } from "../types/types";
@@ -46,6 +47,12 @@ const MovesWrapper = styled.div`
 
 export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => {
     const router = useRouter();
+
+    useEffect(()=>{
+        const getPokemonData = async() =>{
+            const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        }
+    },[])
 
     return (
         <Wrapper>
