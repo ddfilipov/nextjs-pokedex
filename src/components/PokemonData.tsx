@@ -65,8 +65,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                 <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
             </PictureWrapper>
             <MovesWrapper>
-                <MoveList />
-                <MoveList />
+                <MoveList moves={moves} />
+                {/* <MoveList /> */}
             </MovesWrapper>
             {/* <button type="button" onClick={() => router.back()}>
                 BACK
