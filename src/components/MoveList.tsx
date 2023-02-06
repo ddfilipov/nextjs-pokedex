@@ -5,6 +5,8 @@ import { PokemonMove } from "../types/types";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    border: 1px solid white;
+    overflow-y: auto;
 `;
 
 interface MoveListProps {
