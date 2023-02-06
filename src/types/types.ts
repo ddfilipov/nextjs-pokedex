@@ -25,7 +25,7 @@ export interface IPokemonStats {
 }
 
 export interface IPokemonExtendedData extends IPokemonBasicData {
-    stats: IPokemonStats;
+    // stats: IPokemonStats;
     moves: PokemonMove[];
 }
 
@@ -50,7 +50,7 @@ export type PokeTypes =
     | "fairy";
 
 export interface PokemonMove {
-    move: string;
+    move: NameApiResource;
 }
 
 interface NameApiResource {

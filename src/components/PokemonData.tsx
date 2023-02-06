@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { IPokemonBasicData } from "../types/types";
+import { IPokemonBasicData, IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
 import TypeContainer from "./TypeContainer";
@@ -45,14 +45,12 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
-export const PokemonData: FC<IPokemonBasicData> = ({ name, id, types, src }) => {
+export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves }) => {
     const router = useRouter();
 
-    useEffect(()=>{
-        const getPokemonData = async() =>{
-            const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        }
-    },[])
+    useEffect(() => {
+        console.log("hola PokemonData, a ver esos moves:", moves);
+    }, []);
 
     return (
         <Wrapper>
