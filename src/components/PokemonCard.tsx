@@ -15,7 +15,7 @@ interface PokemonCardProps {
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: auto 25px;
+    grid-template-rows: auto 35px;
     justify-items: center;
     padding: 10px;
     min-height: 260px;
@@ -23,6 +23,7 @@ const Wrapper = styled.div`
     place-content: center;
     background-color: var(--dark-color);
     color: white;
+    gap: 10px;
     border-radius: 10px;
 `;
 
