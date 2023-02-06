@@ -2,10 +2,10 @@ import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { baseUrl } from "..";
 import PokemonData from "../../components/PokemonData";
-import { IGetPokemon, IPokemonBasicData } from "../../types/types";
+import { IGetPokemon, IPokemonBasicData, IPokemonExtendedData } from "../../types/types";
 
-export const Pokemon = ({ name, id, types, src }: IPokemonBasicData) => {
-    return <PokemonData name={name} id={id} types={types} src={src} />;
+export const Pokemon = ({ name, id, types, src, moves }: IPokemonExtendedData) => {
+    return <PokemonData name={name} id={id} types={types} src={src} moves={moves} />;
 };
 export default Pokemon;
 
@@ -31,11 +31,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     console.log("res.data.src:", res.data.src);
     console.log("res.data.id:", res.data.id);
     console.log("res.data.types:", res.data.types);
+    console.log("res.data.moves:", res.data.moves);
     const types = await res.data.types.map((type: any) => {
         return type.type.name;
     });
 
     const { name, id }: IPokemonBasicData = await res.data;
 
-    return { props: { name, id, types, src: res.data.sprites.front_default } };
+    return { props: { name, id, types, src: res.data.sprites.front_default, moves: res.data.moves } };
 };

@@ -50,6 +50,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
 
     useEffect(() => {
         console.log("hola PokemonData, a ver esos moves:", moves);
+        console.log("hola PokemonData, a ver esos id:", id);
     }, []);
 
     return (
