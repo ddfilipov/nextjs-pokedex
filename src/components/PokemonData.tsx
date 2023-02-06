@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { IPokemonBasicData, IPokemonExtendedData } from "../types/types";
+import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
 import TypeContainer from "./TypeContainer";

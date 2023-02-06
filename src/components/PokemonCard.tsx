@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { IPokemonBasicData, IPokemonExtendedData } from "../types/types";
+import { IPokemonBasicData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import LoadingSpinner from "./LoadingSpinner";
 import TypeContainer from "./TypeContainer";
@@ -40,15 +40,13 @@ const TopCard = styled.div`
 export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const defaultPokeData: IPokemonExtendedData = {
+    const defaultPokeData: IPokemonBasicData = {
         name: "defaultName",
         src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
         id: 1,
         types: ["grass"],
-        // stats: { base_stat: 0, stat: { id: 0, name: "" } },
-        moves: [{ move: { name: "" } }],
     };
-    const [pokeData, setPokeData] = useState<IPokemonExtendedData>(defaultPokeData);
+    const [pokeData, setPokeData] = useState<IPokemonBasicData>(defaultPokeData);
 
     const getPokemonData = async (id: string) => {
         setIsLoading(true);
@@ -61,7 +59,6 @@ export const PokemonCard: FC<PokemonCardProps> = ({ id }) => {
             src: res.data.sprites.front_default,
             id: res.data.id,
             types: types,
-            moves: res.data.moves,
         });
         setIsLoading(false);
     };
