@@ -18,7 +18,8 @@ export default function Home({ results }: IGetPokemon) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const res = await axios.get(baseUrl);
+    // const res = await axios.get(baseUrl); // just the first 20 pokemon
+    const res = await axios.get(`${baseUrl}?offset=0&limit=151`);
 
     const { results }: IGetPokemon = await res.data;
 

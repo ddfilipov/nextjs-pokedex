@@ -10,7 +10,8 @@ export const Pokemon = ({ name, id, types, src, moves }: IPokemonExtendedData) =
 export default Pokemon;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await axios.get(baseUrl);
+    // const res = await axios.get(baseUrl); // just the first 20 pokemon
+    const res = await axios.get(`${baseUrl}?offset=0&limit=151`);
     const { results }: IGetPokemon = await res.data;
 
     const pokemons = results.map((pokemon) => {

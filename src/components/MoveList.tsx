@@ -7,18 +7,19 @@ const Container = styled.div`
     flex-direction: column;
     border: 1px solid white;
     overflow-y: auto;
-	
+    padding: 10px;
+
     &::-webkit-scrollbar {
-      width: 1em;
+        width: 1em;
     }
-     
+
     &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     }
-     
+
     &::-webkit-scrollbar-thumb {
-      background-color: darkgrey;
-      outline: 1px solid slategrey;
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
     }
 `;
 
