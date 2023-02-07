@@ -48,8 +48,10 @@ const MINIMUMOFFSET: number = 0;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
     const limit = 20;
-    const [offset, setOffset] = useState<number>(0);
-    const [pokemons, setPokemons] = useState<Pokemon[]>(results);
+    // const [offset, setOffset] = useState<number>(0);
+    const [showFrom, setShowFrom] = useState<number>(0);
+    const [showTo, setShowTo] = useState<number>(0);
+    const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(0, 20));
 
     const nextPage = async () => {
         await loadPokemon(offset + limit);
@@ -63,8 +65,8 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     };
 
     const loadPokemon = async (searchFrom: number) => {
-        const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
-        setPokemons(res.data.results);
+        // const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
+        // setPokemons(res.data.results);
     };
 
     return (
