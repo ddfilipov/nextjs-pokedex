@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../types/types";
@@ -48,28 +47,26 @@ const MINIMUMOFFSET: number = 0;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
     const limit = 20;
-    // const [offset, setOffset] = useState<number>(0);
+    
     const [showFrom, setShowFrom] = useState<number>(0);
     const [showTo, setShowTo] = useState<number>(20);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
 
     const nextPage = async () => {
-        setShowFrom((newShowFrom) => showFrom + 20);
-        setShowTo((newShowTo) => showTo + 20);
+        setShowFrom(showFrom + 20);
+        setShowTo(showTo + 20);
         loadPokemon(showFrom + 20, showTo + 20);
         // await loadPokemon(offset + limit);
     };
     const previousPage = async () => {
         // if (offset > MINIMUMOFFSET) {
-        setShowFrom((newShowFrom) => showFrom - 20);
-        setShowTo((newShowTo) => showTo - 20);
+        setShowFrom(showFrom - 20);
+        setShowTo(showTo - 20);
         loadPokemon(showFrom - 20, showTo - 20);
-        // setOffset(offset - limit);
         // }
     };
 
     const loadPokemon = async (searchFrom: number, searchTo: number) => {
-        // const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
         setPokemons(results.slice(searchFrom, searchTo));
     };
 
