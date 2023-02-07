@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../types/types";
 import PokemonCard from "./PokemonCard";
@@ -50,24 +50,30 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const limit = 20;
     // const [offset, setOffset] = useState<number>(0);
     const [showFrom, setShowFrom] = useState<number>(0);
-    const [showTo, setShowTo] = useState<number>(0);
-    const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(0, 20));
+    const [showTo, setShowTo] = useState<number>(20);
+    const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
 
     const nextPage = async () => {
-        await loadPokemon(offset + limit);
-        setOffset(offset + limit);
+        setShowFrom((newShowFrom) => showFrom + 20);
+        setShowTo((newShowTo) => showTo + 20);
+        loadPokemon(showFrom + 20, showTo + 20);
+        // await loadPokemon(offset + limit);
     };
     const previousPage = async () => {
-        if (offset > MINIMUMOFFSET) {
-            await loadPokemon(offset - limit);
-            setOffset(offset - limit);
-        }
+        // if (offset > MINIMUMOFFSET) {
+        setShowFrom((newShowFrom) => showFrom - 20);
+        setShowTo((newShowTo) => showTo - 20);
+        loadPokemon(showFrom - 20, showTo - 20);
+        // setOffset(offset - limit);
+        // }
     };
 
-    const loadPokemon = async (searchFrom: number) => {
+    const loadPokemon = async (searchFrom: number, searchTo: number) => {
         // const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
-        // setPokemons(res.data.results);
+        setPokemons(results.slice(searchFrom, searchTo));
     };
+
+    useEffect(() => {}, []);
 
     return (
         <>
