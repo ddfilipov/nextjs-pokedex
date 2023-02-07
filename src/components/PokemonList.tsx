@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { IGetPokemon, Pokemon } from "../types/types";
 import PokemonCard from "./PokemonCard";
@@ -44,33 +44,33 @@ const TitleStyled = styled.h1`
 `;
 
 const MINIMUMOFFSET: number = 0;
+const MAXIMUMOFFSET: number = 151;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
-    const limit = 20;
-    
+    const resultsPerPage = 20;
+
     const [showFrom, setShowFrom] = useState<number>(0);
     const [showTo, setShowTo] = useState<number>(20);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
 
-    const nextPage = async () => {
-        setShowFrom(showFrom + 20);
-        setShowTo(showTo + 20);
-        loadPokemon(showFrom + 20, showTo + 20);
-        // await loadPokemon(offset + limit);
+    const nextPage = () => {
+        if (showTo < MAXIMUMOFFSET) {
+            setShowFrom(showFrom + resultsPerPage);
+            setShowTo(showTo + resultsPerPage);
+            loadPokemon(showFrom + resultsPerPage, showTo + resultsPerPage);
+        }
     };
-    const previousPage = async () => {
-        // if (offset > MINIMUMOFFSET) {
-        setShowFrom(showFrom - 20);
-        setShowTo(showTo - 20);
-        loadPokemon(showFrom - 20, showTo - 20);
-        // }
+    const previousPage = () => {
+        if (showFrom > MINIMUMOFFSET) {
+            setShowFrom(showFrom - resultsPerPage);
+            setShowTo(showTo - resultsPerPage);
+            loadPokemon(showFrom - resultsPerPage, showTo - resultsPerPage);
+        }
     };
 
-    const loadPokemon = async (searchFrom: number, searchTo: number) => {
+    const loadPokemon = (searchFrom: number, searchTo: number) => {
         setPokemons(results.slice(searchFrom, searchTo));
     };
-
-    useEffect(() => {}, []);
 
     return (
         <>
