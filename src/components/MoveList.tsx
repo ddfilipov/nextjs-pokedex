@@ -35,9 +35,6 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
                 {moves.map((move, index) => (
                     <li key={move.move.name}>{move.move.name}</li>
                 ))}
-                <li>Move 1</li>
-                <li>Move 2</li>
-                <li>Move 3</li>
             </ul>
         </Container>
     );

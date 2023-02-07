@@ -25,14 +25,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    console.log("checking params.id:", params?.id);
+    // console.log("checking params.id:", params?.id);
     const res = await axios.get(baseUrl + "/" + params?.id);
 
-    console.log("res.data.name:", res.data.name);
-    console.log("res.data.src:", res.data.src);
-    console.log("res.data.id:", res.data.id);
-    console.log("res.data.types:", res.data.types);
-    console.log("res.data.moves:", res.data.moves);
+    // console.log("res.data.name:", res.data.name);
+    // console.log("res.data.src:", res.data.src);
+    // console.log("res.data.id:", res.data.id);
+    // console.log("res.data.types:", res.data.types);
+    // console.log("res.data.moves:", res.data.moves);
     const types = await res.data.types.map((type: any) => {
         return type.type.name;
     });
