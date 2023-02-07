@@ -48,23 +48,22 @@ const MINIMUMOFFSET: number = 0;
 
 export const PokemonList = ({ results }: IGetPokemon) => {
     const limit = 20;
-    const [offset, setOffset] = useState<number>(0);
-    const [pokemons, setPokemons] = useState<Pokemon[]>(results);
+    const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(0, 20));
+    const [page, setPage] = useState(0);
 
-    const nextPage = async () => {
-        await loadPokemon(offset + limit);
-        setOffset(offset + limit);
-    };
-    const previousPage = async () => {
-        if (offset > MINIMUMOFFSET) {
-            await loadPokemon(offset - limit);
-            setOffset(offset - limit);
-        }
+    const getPokemonFiltered = () => {
+        const pokemonFilter = results.slice(page + 1, limit);
+        setPokemons(pokemonFilter);
     };
 
-    const loadPokemon = async (searchFrom: number) => {
-        const res = await axios.get(`${baseUrl}?offset=${searchFrom}&limit=${limit}`);
-        setPokemons(res.data.results);
+    const nextPage = () => {
+        console.log("sadas");
+        getPokemonFiltered();
+        setPage((p) => p++);
+    };
+    const previousPage = () => {
+        getPokemonFiltered();
+        setPage((p) => p--);
     };
 
     return (
