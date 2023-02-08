@@ -14,13 +14,8 @@ export interface IPokemonBasicData {
     types: PokeTypes[];
 }
 
-export interface IPokemonStat {
-    id: number;
-    name: string;
-}
-
 export interface IPokemonStats {
-    stat: IPokemonStat;
+    stat: NameApiResource;
     base_stat: number;
 }
 
