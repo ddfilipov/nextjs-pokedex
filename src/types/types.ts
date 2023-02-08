@@ -25,7 +25,7 @@ export interface IPokemonStats {
 }
 
 export interface IPokemonExtendedData extends IPokemonBasicData {
-    // stats: IPokemonStats;
+    stats: IPokemonStats;
     moves: PokemonMove[];
 }
 
@@ -55,5 +55,5 @@ export interface PokemonMove {
 
 interface NameApiResource {
     name: string;
-    // TODO: should have url: string later
+    url: string;
 }

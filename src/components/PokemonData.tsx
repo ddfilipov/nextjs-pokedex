@@ -46,7 +46,7 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
-export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves }) => {
+export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats }) => {
     const router = useRouter();
 
     useEffect(() => {
