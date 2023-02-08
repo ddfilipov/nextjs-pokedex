@@ -7,6 +7,7 @@ import imageLoader from "../imageLoader";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
+import { ButtonStyled } from "./PokemonList";
 import TypeContainer from "./TypeContainer";
 
 const Wrapper = styled.div`
@@ -54,24 +55,25 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
     }, []);
 
     return (
-        <Wrapper>
-            <InfoWrapper>
-                <h1>
-                    #{id} {capitalizeFirstLetter(name)}
-                </h1>
-                <TypeContainer types={types} />
-            </InfoWrapper>
-            <PictureWrapper>
-                <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
-            </PictureWrapper>
-            <MovesWrapper>
-                <MoveList moves={moves} />
-                {/* <MoveList /> */}
-            </MovesWrapper>
-            {/* <button type="button" onClick={() => router.back()}>
+        <>
+            <ButtonStyled type="button" onClick={() => router.back()}>
                 BACK
-            </button>*/}
-        </Wrapper>
+            </ButtonStyled>
+            <Wrapper>
+                <InfoWrapper>
+                    <h1>
+                        #{id} {capitalizeFirstLetter(name)}
+                    </h1>
+                    <TypeContainer types={types} />
+                </InfoWrapper>
+                <PictureWrapper>
+                    <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
+                </PictureWrapper>
+                <MovesWrapper>
+                    <MoveList moves={moves} />
+                </MovesWrapper>
+            </Wrapper>
+        </>
     );
 };
 

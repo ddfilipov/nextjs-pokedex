@@ -26,7 +26,7 @@ const ButtonContainer = styled.div`
     }
 `;
 
-const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button`
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
     height: 50px;
