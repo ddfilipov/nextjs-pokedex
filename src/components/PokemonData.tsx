@@ -1,4 +1,3 @@
-import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -8,7 +7,6 @@ import { CustomButton } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
-import { ButtonStyled } from "./PokemonList";
 import TypeContainer from "./TypeContainer";
 
 const Wrapper = styled.div`
