@@ -22,7 +22,10 @@ export interface IPokemonStats {
 export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
     moves: PokemonMove[];
+    stats2?: Map<string, number>;
 }
+
+export interface IStatsTest {}
 
 export type PokeTypes =
     | "normal"
