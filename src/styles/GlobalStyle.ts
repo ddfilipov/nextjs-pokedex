@@ -51,3 +51,15 @@ export const MainAreaContainer = styled.div`
     padding: 10px;
     gap: 5px;
 `;
+
+export const CustomButton = styled.button`
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    height: 50px;
+    background-color: var(--dark-color);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    min-width: 120px;
+`;

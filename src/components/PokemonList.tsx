@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { CustomButton } from "../styles/GlobalStyle";
 import { IGetPokemon, Pokemon } from "../types/types";
 import PokemonCard from "./PokemonCard";
 
@@ -24,17 +25,6 @@ const ButtonContainer = styled.div`
         padding: 5px;
         min-width: 150px;
     }
-`;
-
-export const ButtonStyled = styled.button`
-    border-radius: 10px;
-    border: 2px solid var(--secondary-color);
-    height: 50px;
-    background-color: var(--dark-color);
-    color: white;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
 `;
 
 const TitleStyled = styled.h1`
@@ -81,8 +71,8 @@ export const PokemonList = ({ results }: IGetPokemon) => {
                 })}
             </Wrapper>
             <ButtonContainer>
-                <ButtonStyled onClick={previousPage}>PREVIOUS PAGE</ButtonStyled>
-                <ButtonStyled onClick={nextPage}>NEXT PAGE</ButtonStyled>
+                <CustomButton onClick={previousPage}>PREVIOUS PAGE</CustomButton>
+                <CustomButton onClick={nextPage}>NEXT PAGE</CustomButton>
             </ButtonContainer>
         </>
     );

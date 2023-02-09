@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
+import { CustomButton } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
@@ -57,9 +58,9 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
 
     return (
         <>
-            <ButtonStyled type="button" onClick={() => router.back()}>
+            <CustomButton type="button" onClick={() => router.back()}>
                 BACK
-            </ButtonStyled>
+            </CustomButton>
             <Wrapper>
                 <InfoWrapper>
                     <h1>
