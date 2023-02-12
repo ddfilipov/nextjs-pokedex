@@ -22,7 +22,7 @@ export interface IPokemonStats {
 export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
     moves: PokemonMove[];
-    stats2?: Map<string, number>;
+    stats2?: Map<string, number>; // TODO: is a map necessary though?
 }
 
 export interface IStatsTest {}
