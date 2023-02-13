@@ -65,7 +65,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     return (
         <>
             <TitleStyled>NextjsDex</TitleStyled>
-            <input placeholder="Search pokémon..."></input>
+            <input placeholder="Search pokémon..." type="search"></input>
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonCard id={pokemon.name} key={pokemon.name} />;
