@@ -4,6 +4,8 @@ import styled from "styled-components";
 interface CustomInputProps {
     inputType?: HTMLInputTypeAttribute;
     placeholder?: string;
+    value?: string;
+    onChange: () => void;
 }
 
 const StyledInput = styled.input`
@@ -16,8 +18,8 @@ const StyledInput = styled.input`
     border-radius: 10px;
 `;
 
-export const CustomInput: FC<CustomInputProps> = ({ inputType, placeholder }) => {
-    return <StyledInput type={inputType} placeholder={placeholder}></StyledInput>;
+export const CustomInput: FC<CustomInputProps> = ({ inputType, placeholder, value, onChange }) => {
+    return <StyledInput type={inputType} placeholder={placeholder} value={value} onChange={onChange}></StyledInput>;
 };
 
 export default CustomInput;

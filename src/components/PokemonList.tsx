@@ -59,6 +59,8 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const [showTo, setShowTo] = useState<number>(20);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
 
+    const [filteredWord, setFilteredWord] = useState<string>("");
+
     const nextPage = () => {
         if (showTo < MAXIMUMOFFSET) {
             setShowFrom(showFrom + resultsPerPage);
@@ -82,7 +84,12 @@ export const PokemonList = ({ results }: IGetPokemon) => {
         <Wrapper>
             <TitleStyled>NextjsDex</TitleStyled>
             <SearchBarWrapper>
-                <CustomInput placeholder="Search pokémon..." inputType="search" />
+                <CustomInput
+                    placeholder="Search pokémon..."
+                    inputType="search"
+                    value={filteredWord}
+                    onChange={() => setFilteredWord}
+                />
             </SearchBarWrapper>
             <ListWrapper>
                 {pokemons.map((pokemon) => {
