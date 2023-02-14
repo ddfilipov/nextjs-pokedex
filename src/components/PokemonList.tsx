@@ -9,6 +9,14 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    place-content: center;
+    gap: 20px;
+`;
+
+const ListWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     max-width: 1200px;
     gap: 10px;
     padding: 5px;
@@ -23,6 +31,15 @@ const ButtonContainer = styled.div`
     button {
         padding: 5px;
         min-width: 150px;
+    }
+`;
+
+const SearchBarWrapper = styled.div`
+    display: flex;
+    flex-basis: 100%;
+    place-content: center;
+    input {
+        width: 80%;
     }
 `;
 
@@ -62,19 +79,21 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     };
 
     return (
-        <>
+        <Wrapper>
             <TitleStyled>NextjsDex</TitleStyled>
-            <CustomInput placeholder="Search pokémon..." inputType="search" />
-            <Wrapper>
+            <SearchBarWrapper>
+                <CustomInput placeholder="Search pokémon..." inputType="search" />
+            </SearchBarWrapper>
+            <ListWrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonCard id={pokemon.name} key={pokemon.name} />;
                 })}
-            </Wrapper>
+            </ListWrapper>
             <ButtonContainer>
                 <CustomButton onClick={previousPage}>PREVIOUS PAGE</CustomButton>
                 <CustomButton onClick={nextPage}>NEXT PAGE</CustomButton>
             </ButtonContainer>
-        </>
+        </Wrapper>
     );
 };
 export default PokemonList;

@@ -9,10 +9,11 @@ interface CustomInputProps {
 const StyledInput = styled.input`
     width: auto;
     min-height: 48px;
-    padding: 5px;
+    padding: 10px;
     background-color: var(--dark-color);
     color: white;
     border: 1px solid #767676;
+    border-radius: 10px;
 `;
 
 export const CustomInput: FC<CustomInputProps> = ({ inputType, placeholder }) => {
