@@ -12,6 +12,7 @@ const StyledInput = styled.input`
     padding: 5px;
     background-color: var(--dark-color);
     color: white;
+    border: 1px solid #767676;
 `;
 
 export const CustomInput: FC<CustomInputProps> = ({ inputType, placeholder }) => {
