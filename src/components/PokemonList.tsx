@@ -5,8 +5,6 @@ import { IGetPokemon, Pokemon } from "../types/types";
 import CustomInput from "./atoms/CustomInput";
 import PokemonCard from "./PokemonCard";
 
-const baseUrl = "https://pokeapi.co/api/v2/pokemon";
-
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;

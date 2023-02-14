@@ -8,7 +8,10 @@ interface CustomInputProps {
 
 const StyledInput = styled.input`
     width: auto;
-    height: 48px;
+    min-height: 48px;
+    padding: 5px;
+    background-color: var(--dark-color);
+    color: white;
 `;
 
 export const CustomInput: FC<CustomInputProps> = ({ inputType, placeholder }) => {
