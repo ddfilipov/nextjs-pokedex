@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { CustomButton } from "../styles/GlobalStyle";
 import { IGetPokemon, Pokemon } from "../types/types";
+import CustomInput from "./atoms/CustomInput";
 import PokemonCard from "./PokemonCard";
 
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
@@ -65,7 +66,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     return (
         <>
             <TitleStyled>NextjsDex</TitleStyled>
-            <input placeholder="Search pokémon..." type="search"></input>
+            <CustomInput placeholder="Search pokémon..." inputType="search" />
             <Wrapper>
                 {pokemons.map((pokemon) => {
                     return <PokemonCard id={pokemon.name} key={pokemon.name} />;
