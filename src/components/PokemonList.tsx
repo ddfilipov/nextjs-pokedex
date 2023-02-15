@@ -39,7 +39,7 @@ const SearchBarWrapper = styled.div`
     flex-basis: 100%;
     place-content: center;
     input {
-        width: 100%;
+        width: 80%;
     }
 `;
 
