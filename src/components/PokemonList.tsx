@@ -28,6 +28,7 @@ const ButtonContainer = styled.div`
     flex-direction: row;
     gap: 20px;
     flex-basis: 100%;
+    /* place-content: center; */
     button {
         padding: 5px;
         min-width: 150px;
@@ -57,6 +58,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
 
     const [showFrom, setShowFrom] = useState<number>(0);
     const [showTo, setShowTo] = useState<number>(20);
+    const [allPokemon, setAllPokemon] = useState<Pokemon[]>(results);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
 
     const [filteredWord, setFilteredWord] = useState<string>("");
@@ -79,13 +81,17 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const loadPokemon = (searchFrom: number, searchTo: number) => {
         setPokemons(results.slice(searchFrom, searchTo));
     };
+
     const handleChangeFilter = (event: ChangeEvent<HTMLInputElement>) => {
-        setFilteredWord(event.target.value);
+        const newFilteredWord = event.target.value;
+        setFilteredWord(newFilteredWord);
+        const newPokemonList = allPokemon.filter((pokemon) => pokemon.name.includes(newFilteredWord));
+        console.log("show me the new pokemon list:", newPokemonList);
     };
-    
+
     useEffect(() => {
-        console.log("lemme see that filteredWord:", filteredWord);
-    }, [filteredWord]);
+        console.log("lemme see that pokemons:", pokemons);
+    }, [pokemons]);
 
     return (
         <Wrapper>
