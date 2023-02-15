@@ -8,6 +8,7 @@ import PokemonCard from "./PokemonCard";
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
+    max-width: 1200px;
     flex-wrap: wrap;
     place-content: center;
     gap: 20px;
@@ -17,7 +18,6 @@ const ListWrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 1200px;
     gap: 10px;
     padding: 5px;
     place-content: center;
@@ -39,7 +39,7 @@ const SearchBarWrapper = styled.div`
     flex-basis: 100%;
     place-content: center;
     input {
-        width: 80%;
+        width: 100%;
     }
 `;
 
