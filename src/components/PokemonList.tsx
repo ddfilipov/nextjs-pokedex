@@ -87,11 +87,15 @@ export const PokemonList = ({ results }: IGetPokemon) => {
         setFilteredWord(newFilteredWord);
         const newPokemonList = allPokemon.filter((pokemon) => pokemon.name.includes(newFilteredWord));
         console.log("show me the new pokemon list:", newPokemonList);
+        setAllPokemon(newPokemonList);
     };
 
     useEffect(() => {
         console.log("lemme see that pokemons:", pokemons);
-    }, [pokemons]);
+        setShowFrom(0);
+        setShowTo(20);
+        setPokemons(allPokemon.slice(0, 20));
+    }, [allPokemon]);
 
     return (
         <Wrapper>
