@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import styled from "styled-components";
 import { CustomButton } from "../styles/GlobalStyle";
 import { IGetPokemon, Pokemon } from "../types/types";
@@ -79,17 +79,19 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const loadPokemon = (searchFrom: number, searchTo: number) => {
         setPokemons(results.slice(searchFrom, searchTo));
     };
+    const handleChangeFilter = (event: ChangeEvent<HTMLInputElement>) => {
+        setFilteredWord(event.target.value);
+    };
+    
+    useEffect(() => {
+        console.log("lemme see that filteredWord:", filteredWord);
+    }, [filteredWord]);
 
     return (
         <Wrapper>
             <TitleStyled>NextjsDex</TitleStyled>
             <SearchBarWrapper>
-                <CustomInput
-                    placeholder="Search pokémon..."
-                    inputType="search"
-                    value={filteredWord}
-                    onChange={() => setFilteredWord}
-                />
+                <CustomInput placeholder="Search pokémon..." inputType="search" onChange={handleChangeFilter} />
             </SearchBarWrapper>
             <ListWrapper>
                 {pokemons.map((pokemon) => {
