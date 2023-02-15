@@ -28,7 +28,7 @@ const ButtonContainer = styled.div`
     flex-direction: row;
     gap: 20px;
     flex-basis: 100%;
-    /* place-content: center; */
+    place-content: center;
     button {
         padding: 5px;
         min-width: 150px;
