@@ -84,17 +84,21 @@ export const PokemonList = ({ results }: IGetPokemon) => {
 
     const handleChangeFilter = (event: ChangeEvent<HTMLInputElement>) => {
         const newFilteredWord = event.target.value;
+        console.log("newFilteredWord:", newFilteredWord);
         setFilteredWord(newFilteredWord);
         const newPokemonList = allPokemon.filter((pokemon) => pokemon.name.includes(newFilteredWord));
         console.log("show me the new pokemon list:", newPokemonList);
-        setAllPokemon(newPokemonList);
+        filterCurrentPokemon(newPokemonList);
+    };
+
+    const filterCurrentPokemon = (newPokemonList: Pokemon[]) => {
+        setShowFrom(0);
+        setShowTo(20);
+        setPokemons(newPokemonList.slice(0, 20));
     };
 
     useEffect(() => {
-        console.log("lemme see that pokemons:", pokemons);
-        setShowFrom(0);
-        setShowTo(20);
-        setPokemons(allPokemon.slice(0, 20));
+        // console.log("lemme see that pokemons:", pokemons);
     }, [allPokemon]);
 
     return (
