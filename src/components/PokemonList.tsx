@@ -79,14 +79,15 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     };
 
     const loadPokemon = (searchFrom: number, searchTo: number) => {
-        setPokemons(results.slice(searchFrom, searchTo));
+        setPokemons(allPokemon.slice(searchFrom, searchTo));
     };
 
     const handleChangeFilter = (event: ChangeEvent<HTMLInputElement>) => {
         const newFilteredWord = event.target.value;
         console.log("newFilteredWord:", newFilteredWord);
         setFilteredWord(newFilteredWord);
-        const newPokemonList = allPokemon.filter((pokemon) => pokemon.name.includes(newFilteredWord));
+        const newPokemonList = results.filter((pokemon) => pokemon.name.includes(newFilteredWord));
+        setAllPokemon(newPokemonList);
         console.log("show me the new pokemon list:", newPokemonList);
         filterCurrentPokemon(newPokemonList);
     };
@@ -98,8 +99,9 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     };
 
     useEffect(() => {
-        // console.log("lemme see that pokemons:", pokemons);
-    }, [allPokemon]);
+        console.log("lemme see how many pokemons:", pokemons.length);
+        console.log("filteredWord:", filteredWord);
+    }, [filteredWord]);
 
     return (
         <Wrapper>
