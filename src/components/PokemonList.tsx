@@ -64,6 +64,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const [filteredWord, setFilteredWord] = useState<string>("");
 
     const nextPage = () => {
+        // TODO: shouldn't let click next if there's no more pokemon on the next page
         if (showTo < MAXIMUMOFFSET) {
             setShowFrom(showFrom + resultsPerPage);
             setShowTo(showTo + resultsPerPage);
