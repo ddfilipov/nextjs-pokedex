@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     place-content: center;
     align-content: start;
     gap: 20px;
+    padding: 20px;
 `;
 
 const ListWrapper = styled.div`
