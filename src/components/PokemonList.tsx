@@ -110,15 +110,21 @@ export const PokemonList = ({ results }: IGetPokemon) => {
             <SearchBarWrapper>
                 <CustomInput placeholder="Search pokémon..." inputType="search" onChange={handleChangeFilter} />
             </SearchBarWrapper>
-            <ListWrapper>
-                {pokemons.map((pokemon) => {
-                    return <PokemonCard id={pokemon.name} key={pokemon.name} />;
-                })}
-            </ListWrapper>
-            <ButtonContainer>
-                <CustomButton onClick={previousPage}>PREVIOUS PAGE</CustomButton>
-                <CustomButton onClick={nextPage}>NEXT PAGE</CustomButton>
-            </ButtonContainer>
+            {pokemons.length > 0 ? (
+                <>
+                    <ListWrapper>
+                        {pokemons.map((pokemon) => {
+                            return <PokemonCard id={pokemon.name} key={pokemon.name} />;
+                        })}
+                    </ListWrapper>
+                    <ButtonContainer>
+                        <CustomButton onClick={previousPage}>PREVIOUS PAGE</CustomButton>
+                        <CustomButton onClick={nextPage}>NEXT PAGE</CustomButton>
+                    </ButtonContainer>
+                </>
+            ) : (
+                <p>No results found</p>
+            )}
         </Wrapper>
     );
 };
