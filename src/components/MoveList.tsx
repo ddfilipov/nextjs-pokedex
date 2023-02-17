@@ -33,7 +33,7 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
             <ul>
                 MOVES
                 {moves.map((move, index) => (
-                    <li key={move.move.name}>{move.move.name}</li>
+                    <li key={move.move.name}>{move.move.name}</li> //moves.moves wot? fix this
                 ))}
             </ul>
         </Container>
