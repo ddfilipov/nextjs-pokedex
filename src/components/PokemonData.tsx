@@ -7,7 +7,7 @@ import { CustomButton } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
-import TypeContainer from "./TypeContainer";
+import TypeContainer from "./atoms/TypeContainer";
 
 const Wrapper = styled.div`
     display: grid;

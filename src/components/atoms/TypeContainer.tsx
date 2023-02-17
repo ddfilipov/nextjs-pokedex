@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { ITypeColors, typeStyles } from "../styles/const";
-import { PokeTypes } from "../types/types";
-import { capitalizeFirstLetter } from "../utils/funcs";
+import { ITypeColors, typeStyles } from "../../styles/const";
+import { PokeTypes } from "../../types/types";
+import { capitalizeFirstLetter } from "../../utils/funcs";
 
 interface TypeContainerProps {
     types: PokeTypes[];
