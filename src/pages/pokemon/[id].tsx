@@ -4,8 +4,9 @@ import { baseUrl } from "..";
 import PokemonData from "../../components/PokemonData";
 import { IGetPokemon, IPokemonBasicData, IPokemonExtendedData } from "../../types/types";
 
-export const Pokemon = ({ name, id, types, src, moves, stats }: IPokemonExtendedData) => {
-    return <PokemonData name={name} id={id} types={types} src={src} moves={moves} stats={stats} />;
+export const Pokemon = ({ name, id, types, src, moves, stats, stats2 }: IPokemonExtendedData) => {
+    console.log("aaaaaaaaaaaaaaaaaaa stats2:", stats2);
+    return <PokemonData name={name} id={id} types={types} src={src} moves={moves} stats={stats} stats2={stats2} />;
 };
 export default Pokemon;
 
@@ -27,12 +28,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const res = await axios.get(baseUrl + "/" + params?.id);
 
-    console.log("res.data.stats:", res.data.stats);
+    // console.log("res.data.stats:", res.data.stats);
     const types = await res.data.types.map((type: any) => {
         return type.type.name;
     });
 
+    const stats: Map<string, number> = new Map<string, number>();
+
+    await res.data.stats.map((stat: any) => {
+        console.log("hey stat:", stat);
+        stats.set(stat.stat.name, stat.base_stat);
+    });
+    console.log("stats:", stats);
+    const stringifiedMap = Object.fromEntries(stats);
+    JSON.stringify(stringifiedMap);
+
     const { name, id }: IPokemonBasicData = await res.data;
 
-    return { props: { name, id, types, src: res.data.sprites.front_default, moves: res.data.moves, stats: res.data.stats } };
+    return {
+        props: {
+            name,
+            id,
+            types,
+            src: res.data.sprites.front_default,
+            moves: res.data.moves,
+            stats: res.data.stats,
+            stats2: stringifiedMap,
+            // stats2: JSON.stringify(new Map<string,number>()),
+        },
+    };
 };

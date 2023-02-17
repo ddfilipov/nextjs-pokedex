@@ -45,13 +45,14 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
-export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats }) => {
+export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
 
     useEffect(() => {
-        console.log("hola PokemonData, a ver esos moves:", moves);
-        console.log("hola PokemonData, a ver esos id:", id);
-        console.log("hola PokemonData, a ver esos stats:", stats);
+        // console.log("hola PokemonData, a ver esos moves:", moves);
+        // console.log("hola PokemonData, a ver esos id:", id);
+        // console.log("hola PokemonData, a ver esos stats:", stats);
+        console.log("hola PokemonData, a ver esos stats2:", stats2);
     }, []);
 
     return (
