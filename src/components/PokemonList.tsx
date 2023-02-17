@@ -9,8 +9,10 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     max-width: 1200px;
+    min-height: 1000px;
     flex-wrap: wrap;
     place-content: center;
+    align-content: start;
     gap: 20px;
 `;
 
@@ -45,6 +47,7 @@ const SearchBarWrapper = styled.div`
 `;
 
 const TitleStyled = styled.h1`
+    position: static;
     font-size: 3rem;
     color: var(--secondary-color);
     color: white;
