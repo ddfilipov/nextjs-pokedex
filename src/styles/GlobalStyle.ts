@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
    
 html{
     background-color: #282c34;
+    color:white;
 	// types variables
 	--normal-background: #A8A77A;
 	--fire-background: #EE8130;
