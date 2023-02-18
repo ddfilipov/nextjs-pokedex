@@ -11,7 +11,6 @@ export const Pokemon = ({ name, id, types, src, moves, stats, stats2 }: IPokemon
 export default Pokemon;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    // const res = await axios.get(baseUrl); // just the first 20 pokemon
     const res = await axios.get(`${baseUrl}?offset=0&limit=151`);
     const { results }: IGetPokemon = await res.data;
 
@@ -28,7 +27,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const res = await axios.get(baseUrl + "/" + params?.id);
 
-    // console.log("res.data.stats:", res.data.stats);
     const types = await res.data.types.map((type: any) => {
         return type.type.name;
     });
@@ -54,7 +52,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             moves: res.data.moves,
             stats: res.data.stats,
             stats2: stringifiedMap,
-            // stats2: JSON.stringify(new Map<string,number>()),
         },
     };
 };
