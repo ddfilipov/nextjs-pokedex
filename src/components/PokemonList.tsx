@@ -64,7 +64,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const [showTo, setShowTo] = useState<number>(20);
     const [allPokemon, setAllPokemon] = useState<Pokemon[]>(results);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
-    // checking if this works
+    
     const [filteredWord, setFilteredWord] = useState<string>("");
 
     const nextPage = () => {
