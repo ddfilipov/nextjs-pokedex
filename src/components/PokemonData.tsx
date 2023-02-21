@@ -49,9 +49,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
     const router = useRouter();
 
     useEffect(() => {
-        // console.log("hola PokemonData, a ver esos stats:", stats);
         console.log("hola PokemonData, a ver esos stats2:", stats2);
-        // console.log("hola PokemonData, a ver esos stats2:", Object.keys(stats2));
     }, []);
 
     return (
