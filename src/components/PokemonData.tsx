@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { CustomButton } from "../styles/GlobalStyle";
@@ -47,6 +47,7 @@ const MovesWrapper = styled.div`
 
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
+    const [estadisticas, setEstadisticas] = useState<string[]>([""]);
 
     useEffect(() => {
         console.log("hola PokemonData, a ver esos stats2:", stats2);
@@ -58,7 +59,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
         estadisticas.forEach((a, b) => {
             console.log("a:", a, "b:", b);
         });
-        return estadisticas;
+        setEstadisticas(estadisticas);
     };
 
     return (
@@ -72,7 +73,11 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         #{id} {capitalizeFirstLetter(name)}
                     </h1>
                     <TypeContainer types={types} />
-                    {/* <ul>{getStats()}</ul> */}
+                    <ul>
+                        {estadisticas.map((stat) => (
+                            <li>{stat}</li>
+                        ))}
+                    </ul>
                 </InfoWrapper>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
