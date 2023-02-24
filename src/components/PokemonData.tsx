@@ -50,17 +50,15 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
 
     useEffect(() => {
         console.log("hola PokemonData, a ver esos stats2:", stats2);
+        getStats();
     }, []);
 
     const getStats = () => {
-        // stats2.forEach((a,b) => {
-
-            
-        // });
-        // if (stats2) {
-        //     for (let stat of stats2.entries()) {
-        //     }
-        // }
+        const estadisticas = Object.keys(stats2);
+        estadisticas.forEach((a, b) => {
+            console.log("a:", a, "b:", b);
+        });
+        return estadisticas;
     };
 
     return (
@@ -74,7 +72,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         #{id} {capitalizeFirstLetter(name)}
                     </h1>
                     <TypeContainer types={types} />
-                    <ul>{}</ul>
+                    {/* <ul>{getStats()}</ul> */}
                 </InfoWrapper>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
