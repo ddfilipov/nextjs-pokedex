@@ -52,6 +52,17 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
         console.log("hola PokemonData, a ver esos stats2:", stats2);
     }, []);
 
+    const getStats = () => {
+        // stats2.forEach((a,b) => {
+
+            
+        // });
+        // if (stats2) {
+        //     for (let stat of stats2.entries()) {
+        //     }
+        // }
+    };
+
     return (
         <>
             <CustomButton type="button" onClick={() => router.back()}>
@@ -63,6 +74,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         #{id} {capitalizeFirstLetter(name)}
                     </h1>
                     <TypeContainer types={types} />
+                    <ul>{}</ul>
                 </InfoWrapper>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
