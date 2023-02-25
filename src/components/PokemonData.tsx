@@ -52,24 +52,12 @@ interface IStat {
 
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
-    const [estadisticas, setEstadisticas] = useState<string[]>([""]);
-    const [estadisticas2, setEstadisticas2] = useState<IStat[]>();
 
-    useEffect(() => {
-        // console.log("hola PokemonData, a ver esos stats2:", stats2);
-        getStats();
-        console.log(estadisticas2);
-    }, []);
+    useEffect(() => {}, []);
 
-    const getStats = () => {
-        const estadisticas = Object.keys(stats2);
-        estadisticas.forEach((a, b) => {
-            // setEstadisticas2();
-            console.log("a:", a, "b:", b);
-        });
-        console.log(stats2);
-        console.log(estadisticas2);
-        // setEstadisticas(estadisticas);
+    const curateExpression = (stringExpression: string) => {
+        const removedHyphen = stringExpression.replace("-", " ");
+        return capitalizeFirstLetter(removedHyphen);
     };
 
     return (
@@ -83,17 +71,9 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         #{id} {capitalizeFirstLetter(name)}
                     </h1>
                     <TypeContainer types={types} />
-                    {Object.entries(stats2).map(([key, value]) => (
-                        <>
-                            <div key={key}>{key}</div>
-                            <div key={key}>{value}</div>
-                        </>
+                    {Object.entries(stats2).map(([name, value]) => (
+                        <div key={name}>{`${curateExpression(name)}: ${value}`}</div>
                     ))}
-                    {/* <ul>
-                        {estadisticas.map((stat) => (
-                            <li>{stat}</li>
-                        ))}
-                    </ul> */}
                 </InfoWrapper>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
