@@ -45,21 +45,31 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
+interface IStat {
+    name: string;
+    statNumber: number;
+}
+
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
     const [estadisticas, setEstadisticas] = useState<string[]>([""]);
+    const [estadisticas2, setEstadisticas2] = useState<IStat[]>();
 
     useEffect(() => {
-        console.log("hola PokemonData, a ver esos stats2:", stats2);
+        // console.log("hola PokemonData, a ver esos stats2:", stats2);
         getStats();
+        console.log(estadisticas2);
     }, []);
 
     const getStats = () => {
         const estadisticas = Object.keys(stats2);
         estadisticas.forEach((a, b) => {
+            // setEstadisticas2();
             console.log("a:", a, "b:", b);
         });
-        setEstadisticas(estadisticas);
+        console.log(stats2);
+        console.log(estadisticas2);
+        // setEstadisticas(estadisticas);
     };
 
     return (
