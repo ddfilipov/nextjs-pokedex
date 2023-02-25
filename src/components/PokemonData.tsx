@@ -83,11 +83,17 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         #{id} {capitalizeFirstLetter(name)}
                     </h1>
                     <TypeContainer types={types} />
-                    <ul>
+                    {Object.entries(stats2).map(([key, value]) => (
+                        <>
+                            <div key={key}>{key}</div>
+                            <div key={key}>{value}</div>
+                        </>
+                    ))}
+                    {/* <ul>
                         {estadisticas.map((stat) => (
                             <li>{stat}</li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </InfoWrapper>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
