@@ -45,6 +45,11 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
+const Text = styled.span`
+    text-transform: capitalize;
+    color: white;
+`;
+
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
 
@@ -67,9 +72,9 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                     </h1>
                     <TypeContainer types={types} />
                     {Object.entries(stats2).map(([name, value]) => (
-                        <div key={name} style={{ textTransform: "capitalize" }}>{`${curateExpression(
-                            name
-                        )}: ${value}`}</div>
+                        <div key={name}>
+                            <Text>{`${curateExpression(name)}: ${value}`}</Text>
+                        </div>
                     ))}
                 </InfoWrapper>
                 <PictureWrapper>
