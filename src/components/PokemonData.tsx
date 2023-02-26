@@ -27,6 +27,7 @@ const PictureWrapper = styled.div`
     padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 `;
 const InfoWrapper = styled.div`
