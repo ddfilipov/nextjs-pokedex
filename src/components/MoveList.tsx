@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
+import { Text } from "../styles/GlobalStyle";
 import { PokemonMove } from "../types/types";
 
 const Container = styled.div`
@@ -33,7 +34,9 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
             <ul>
                 MOVES
                 {moves.map((move, index) => (
-                    <li key={move.move.name}>{move.move.name}</li> //moves.moves wot? fix this
+                    <li key={move.move.name}>
+                        <Text>{move.move.name}</Text>
+                    </li> //moves.moves wot? fix this
                 ))}
             </ul>
         </Container>

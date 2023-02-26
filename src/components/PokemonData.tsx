@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { CustomButton } from "../styles/GlobalStyle";
+import { CustomButton, Text } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
@@ -43,11 +43,6 @@ const MovesWrapper = styled.div`
     width: auto;
     height: 500px;
     padding: 10px;
-`;
-
-const Text = styled.span`
-    text-transform: capitalize;
-    color: white;
 `;
 
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
