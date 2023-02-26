@@ -11,7 +11,12 @@ const Text = styled.span`
 `;
 
 const CustomText: FC<CustomTextProps> = ({ text }) => {
-    return <Text>{text}</Text>;
+    const removeHyphen = (stringExpression: string) => {
+        const removedHyphen = stringExpression.replace("-", " ");
+        return removedHyphen;
+    };
+
+    return <Text>{removeHyphen(text)}</Text>;
 };
 
 export default CustomText;

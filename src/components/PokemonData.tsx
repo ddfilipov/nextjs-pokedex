@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
 import { CustomButton } from "../styles/GlobalStyle";
@@ -49,13 +49,6 @@ const MovesWrapper = styled.div`
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
     const router = useRouter();
 
-    useEffect(() => {}, []);
-
-    const curateExpression = (stringExpression: string) => {
-        const removedHyphen = stringExpression.replace("-", " ");
-        return capitalizeFirstLetter(removedHyphen);
-    };
-
     return (
         <>
             <CustomButton type="button" onClick={() => router.back()}>
@@ -70,6 +63,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                     {Object.entries(stats2).map(([name, value]) => (
                         <div key={name}>
                             <CustomText text={name} />
+                            {": "}
+                            <CustomText text={value.toString()} />
                         </div>
                     ))}
                 </InfoWrapper>
