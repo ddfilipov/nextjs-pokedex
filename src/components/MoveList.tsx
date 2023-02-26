@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Text } from "../styles/GlobalStyle";
 import { PokemonMove } from "../types/types";
+import CustomText from "./atoms/CustomText";
 
 const Container = styled.div`
     display: flex;
@@ -35,7 +35,7 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
                 MOVES
                 {moves.map((move, index) => (
                     <li key={move.move.name}>
-                        <Text>{move.move.name}</Text>
+                        <CustomText text={move.move.name} />
                     </li> //moves.moves wot? fix this
                 ))}
             </ul>

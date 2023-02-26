@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../imageLoader";
-import { CustomButton, Text } from "../styles/GlobalStyle";
+import { CustomButton } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
 import TypeContainer from "./atoms/TypeContainer";
+import CustomText from "./atoms/CustomText";
 
 const Wrapper = styled.div`
     display: grid;
@@ -68,7 +69,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                     <TypeContainer types={types} />
                     {Object.entries(stats2).map(([name, value]) => (
                         <div key={name}>
-                            <Text>{`${curateExpression(name)}: ${value}`}</Text>
+                            <CustomText text={name} />
                         </div>
                     ))}
                 </InfoWrapper>

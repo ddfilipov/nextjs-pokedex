@@ -64,8 +64,3 @@ export const CustomButton = styled.button`
     cursor: pointer;
     min-width: 120px;
 `;
-
-export const Text = styled.span`
-    text-transform: capitalize;
-    color: white;
-`;
