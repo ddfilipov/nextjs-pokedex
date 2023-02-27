@@ -46,43 +46,6 @@ const MovesWrapper = styled.div`
     height: 500px;
     padding: 10px;
 `;
-// TODO html
-// <div class="wrapper">
-// <div class="clase1">
-//   <div class="atk"></div> <!--atk: 85 -->
-//   <div class="def"></div> <!--def: 50 -->
-//   <div class="spe"></div> <!--spe: 250 -->
-// </div>
-// </div>
-//TODO css
-// .wrapper{
-//     width: 1000px;
-//     border: 1px solid black;
-//   }
-//   .clase1{
-//     border: 1px solid black;
-//     width: auto;
-//   /*   height: 50px; */
-//   }
-
-//   .atk{
-//     background-color: green;
-//     width: calc((250/100)*85px);
-//   /*   width: calc(10px*2); */
-//     height: 25px;
-//   }
-//   .def{
-//     background-color: blue;
-//     width: calc(50*100/250);
-//     width: calc((250/100)*50px);
-//     height: 25px;
-//   }
-//   .spe{
-//     background-color: red;
-//     width: calc(50*100/250);
-//     width: calc((250/100)*250px);
-//     height: 25px;
-//   }
 
 const StatBar = styled.div<{ statValue: number }>`
     display: flex;
