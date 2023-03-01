@@ -9,7 +9,7 @@ import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
 import TypeContainer from "./atoms/TypeContainer";
 import CustomText from "./atoms/CustomText";
-import { statStyles } from "../styles/const";
+import { IStatStyles, statStyles } from "../styles/const";
 
 const Wrapper = styled.div`
     display: grid;
@@ -48,10 +48,10 @@ const MovesWrapper = styled.div`
     padding: 10px;
 `;
 
-const StatBar = styled.div<{ statValue: number; statName: string }>`
+const StatBar = styled.div<{ statValue: number; statName: any }>`
     display: flex;
     border: 1px solid;
-    border-color: ${(props) => props.statName.toString()};
+    border-color: ${(props) => props.statName};
     width: calc((${(props) => props.statValue} / 255) * 100%);
 `;
 
@@ -76,7 +76,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                                 {": "}
                                 <CustomText text={value.toString()} />
                             </div>
-                            <StatBar statValue={value} statName={statStyles.attack.toString()} />
+                            <StatBar statValue={value} statName={(statStyles[name.toString()])} />
                         </>
                     ))}
                 </InfoWrapper>

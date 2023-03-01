@@ -25,7 +25,7 @@ export const typeStyles: Record<PokeTypes, ITypeColors> = {
     fairy: { backgroundColor: "--fairy-background" },
 };
 
-export const statStyles = {
+export const statStyles: any = {
     hp: "#FF0000",
     attack: "#F08030",
     defense: "#F8D030",
