@@ -9,7 +9,7 @@ import { capitalizeFirstLetter } from "../utils/funcs";
 import MoveList from "./MoveList";
 import TypeContainer from "./atoms/TypeContainer";
 import CustomText from "./atoms/CustomText";
-import { IStatStyles, statStyles } from "../styles/const";
+import { statStyles } from "../styles/const";
 
 const Wrapper = styled.div`
     display: grid;

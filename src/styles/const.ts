@@ -29,7 +29,7 @@ export const statStyles: any = {
     hp: "#FF0000",
     attack: "#F08030",
     defense: "#F8D030",
-    specialAttack: "#6890F0",
-    specialDefense: "#78C850",
+    "special-attack": "#6890F0",
+    "special-defense": "#78C850",
     speed: "#A13959",
 };
