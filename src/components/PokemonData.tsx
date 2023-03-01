@@ -51,7 +51,7 @@ const StatBar = styled.div<{ statValue: number }>`
     display: flex;
     border: 1px solid red;
     /* width: ${(props) => props.statValue / 255} * 100%; */
-    width: ${(props) => props.statValue / 255} * 100%;
+    width: calc((${(props) => props.statValue} / 255) * 100%);
     /* width: ${(props) => `${props.statValue}px`}; */
     /* width: calc((65px/255) * 1000); */
     /* width: calc(2 / 3 * 100%); */
