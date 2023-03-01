@@ -51,14 +51,8 @@ const MovesWrapper = styled.div`
 const StatBar = styled.div<{ statValue: number; statName: string }>`
     display: flex;
     border: 1px solid;
-    /* border-color: (${(props) => props.statName}); */
-    border-color: #F08030;
-    /* color:  */
-    /* width: ${(props) => props.statValue / 255} * 100%; */
+    border-color: ${(props) => props.statName.toString()};
     width: calc((${(props) => props.statValue} / 255) * 100%);
-    /* width: ${(props) => `${props.statValue}px`}; */
-    /* width: calc((65px/255) * 1000); */
-    /* width: calc(2 / 3 * 100%); */
 `;
 
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
@@ -82,7 +76,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                                 {": "}
                                 <CustomText text={value.toString()} />
                             </div>
-                            <StatBar statValue={value} statName={statStyles.attack} />
+                            <StatBar statValue={value} statName={statStyles.attack.toString()} />
                         </>
                     ))}
                 </InfoWrapper>
