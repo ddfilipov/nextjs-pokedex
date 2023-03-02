@@ -80,6 +80,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                         <TypeContainer types={types} />
                     </div>
                     <div>
+                        <h3>STATS</h3>
                         {Object.entries(stats2).map(([name, value]) => (
                             <>
                                 <div key={name}>
