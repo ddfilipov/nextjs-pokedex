@@ -38,6 +38,14 @@ const InfoWrapper = styled.div`
     width: auto;
     padding: 10px;
 `;
+
+const InfoWrapper2 = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid white;
+    width: auto;
+    padding: 10px;
+`;
 const MovesWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -64,22 +72,26 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                 BACK
             </CustomButton>
             <Wrapper>
-                <InfoWrapper>
-                    <h1>
-                        #{id} {capitalizeFirstLetter(name)}
-                    </h1>
-                    <TypeContainer types={types} />
-                    {Object.entries(stats2).map(([name, value]) => (
-                        <>
-                            <div key={name}>
-                                <CustomText text={name} />
-                                {": "}
-                                <CustomText text={value.toString()} />
-                            </div>
-                            <StatBar statValue={value} statName={(statStyles[name.toString()])} />
-                        </>
-                    ))}
-                </InfoWrapper>
+                <InfoWrapper2>
+                    <div>
+                        <h1>
+                            #{id} {capitalizeFirstLetter(name)}
+                        </h1>
+                        <TypeContainer types={types} />
+                    </div>
+                    <div>
+                        {Object.entries(stats2).map(([name, value]) => (
+                            <>
+                                <div key={name}>
+                                    <CustomText text={name} />
+                                    {": "}
+                                    <CustomText text={value.toString()} />
+                                </div>
+                                <StatBar statValue={value} statName={statStyles[name.toString()]} />
+                            </>
+                        ))}
+                    </div>
+                </InfoWrapper2>
                 <PictureWrapper>
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
                 </PictureWrapper>
