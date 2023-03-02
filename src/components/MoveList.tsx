@@ -29,13 +29,18 @@ interface MoveListProps {
 }
 
 export const MoveList: FC<MoveListProps> = ({ moves }) => {
+    console.log(moves);
     return (
         <Container>
             <ul>
                 MOVES
                 {moves.map((move, index) => (
                     <li key={move.move.name}>
-                        <CustomText text={move.move.name} />
+                        <CustomText
+                            text={`${move.move.name} (${
+                                (move as any).version_group_details[0].move_learn_method.name
+                            })`}
+                        />
                     </li> //moves.moves wot? fix this
                 ))}
             </ul>
