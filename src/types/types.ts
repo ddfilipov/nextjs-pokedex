@@ -23,7 +23,7 @@ export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
     moves: PokemonMove[];
     // stats2?: Map<string, number>; // TODO: is a map necessary though?
-    stats2: {[k: string]: number};
+    stats2: { [k: string]: number };
 }
 
 export interface IStatsTest {}
@@ -56,3 +56,25 @@ interface NameApiResource {
     name: string;
     url: string;
 }
+
+export type PokemonVersionGroups =
+    | "red-blue"
+    | "yellow"
+    | "gold-silver"
+    | "crystal"
+    | "ruby-sapphire"
+    | "emerald"
+    | "firered-leafgreen"
+    | "diamond-pearl"
+    | "platinum"
+    | "heartgold-soulsilver"
+    | "black-white"
+    | "colosseum"
+    | "xd"
+    | "black-2-white-2"
+    | "x-y"
+    | "omega-ruby-alpha-sapphire"
+    | "sun-moon"
+    | "ultra-sun-ultra-moon"
+    | "lets-go-pikachu-lets-go-eevee"
+    | "sword-shield";

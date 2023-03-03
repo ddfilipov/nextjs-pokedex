@@ -40,6 +40,7 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
                             text={`${move.move.name} (${
                                 (move as any).version_group_details[0].move_learn_method.name
                             })`}
+                            //TODO: version-group
                         />
                     </li> //moves.moves wot? fix this
                 ))}
