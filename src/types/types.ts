@@ -79,4 +79,14 @@ export type PokemonVersionGroups =
     | "lets-go-pikachu-lets-go-eevee"
     | "sword-shield";
 
-export const defaultGameVersion: PokemonVersionGroups = "firered-leafgreen"
+export const defaultGameVersion: PokemonVersionGroups = "firered-leafgreen";
+
+export interface MoveGroup {
+    move: NameApiResource;
+    version_group_details: VersionGroupDetail[];
+}
+export interface VersionGroupDetail {
+    level_learned_at: number;
+    move_learn_method: NameApiResource;
+    version_group: NameApiResource;
+}

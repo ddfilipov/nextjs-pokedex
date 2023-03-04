@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styled from "styled-components";
-import { PokemonMove } from "../types/types";
+import { PokemonMove, defaultGameVersion, MoveGroup } from "../types/types";
 import CustomText from "./atoms/CustomText";
 
 const Container = styled.div`
@@ -25,11 +25,19 @@ const Container = styled.div`
 `;
 
 interface MoveListProps {
-    moves: PokemonMove[];
+    moves: MoveGroup[];
 }
 
 export const MoveList: FC<MoveListProps> = ({ moves }) => {
-    console.log(moves);
+    
+    useEffect(()=>{
+        console.log("-- 1 ---------------")
+        console.log(JSON.stringify(moves));
+        console.log("-- 2 ---------------")
+        const filteresMoves = moves.filter((move)=> move.version_group_details)
+        // defaultGameVersion
+
+    },[])
     return (
         <Container>
             <ul>
