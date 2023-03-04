@@ -29,15 +29,15 @@ interface MoveListProps {
 }
 
 export const MoveList: FC<MoveListProps> = ({ moves }) => {
-    
-    useEffect(()=>{
-        console.log("-- 1 ---------------")
+    useEffect(() => {
+        console.log("-- 1 ---------------");
         console.log(JSON.stringify(moves));
-        console.log("-- 2 ---------------")
-        const filteresMoves = moves.filter((move)=> move.version_group_details)
+        console.log("-- 2 ---------------");
+        const filteresMoves = moves.filter((move) =>
+            move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
+        );
         // defaultGameVersion
-
-    },[])
+    }, []);
     return (
         <Container>
             <ul>
