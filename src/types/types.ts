@@ -78,3 +78,5 @@ export type PokemonVersionGroups =
     | "ultra-sun-ultra-moon"
     | "lets-go-pikachu-lets-go-eevee"
     | "sword-shield";
+
+export const defaultGameVersion: PokemonVersionGroups = "firered-leafgreen"
