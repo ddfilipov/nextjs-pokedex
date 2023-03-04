@@ -36,6 +36,7 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
         const filteresMoves = moves.filter((move) =>
             move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
         );
+        // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
     }, []);
     return (
