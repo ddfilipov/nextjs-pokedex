@@ -39,6 +39,92 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
+        // Try this:
+        const prueba2 = [
+            {
+              move: {
+                name: "swords-dance",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "red-blue",
+                  },
+                },
+              ],
+            },
+            {
+              move: {
+                name: "cut",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "red-blue",
+                  },
+                },
+              ],
+            },
+            {
+              move: {
+                name: "tackle",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "red-blue",
+                  },
+                },
+              ],
+            },
+            {
+              move: {
+                name: "body-slam",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "yellow",
+                  },
+                },
+              ],
+            },
+            {
+              move: {
+                name: "take-down",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "yellow",
+                  },
+                },
+              ],
+            },
+            {
+              move: {
+                name: "double-edge",
+              },
+              version_group_details: [
+                {
+                  version_group: {
+                    name: "red-blue",
+                  },
+                },
+                {
+                  version_group: {
+                    name: "yellow",
+                  },
+                },
+              ],
+            },
+          ];
+          
+        //   const aber1 = prueba2.filter((move)=>(move.move.name === "cut") || (move.move.name === "double-edge"))
+        //   console.log(aber1)
+          
+        //   const aber2 = prueba2.filter((move)=>(move.move.name === "cut") || (move.move.name === "double-edge"))
+        //   console.log(aber2)
     }, []);
     return (
         <Container>
