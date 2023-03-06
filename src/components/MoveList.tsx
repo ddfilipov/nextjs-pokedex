@@ -39,7 +39,31 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
-        
+        const p3 = [
+            {
+                titulo: "tios",
+                objeto: [
+                    { nombre: "Denis", nacionalidad: "BG" },
+                    { nombre: "Pepe", nacionalidad: "ES" },
+                    { nombre: "Dimitar", nacionalidad: "BG" },
+                ],
+            },
+            {
+                titulo: "tias",
+                objeto: [
+                    { nombre: "Analina", nacionalidad: "BG" },
+                    { nombre: "Luisa", nacionalidad: "ES" },
+                    { nombre: "Petra", nacionalidad: "BG" },
+                ],
+            },
+        ];
+
+        const p3Filtrado = p3.filter((item) => item.titulo === "tios");
+        // console.log(p3Filtrado)
+        const p3Filtrado2 = p3.map((item) => {
+            return { ...item, objeto: item.objeto.filter((subSubItems) => subSubItems.nacionalidad === "BG") };
+        });
+        console.log(p3Filtrado2);
     }, []);
     return (
         <Container>
