@@ -33,9 +33,12 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         console.log("-- 1 ---------------");
         console.log(JSON.stringify(movesList));
         console.log("-- 2 ---------------");
-        const filteresMoves = movesList.filter((move) =>
-            move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
-        );
+        // const filteresMoves = movesList.filter((move) =>
+        //     move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
+        // );
+        const filteresMoves = movesList.filter((move) => {
+            return move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion);
+        });
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
