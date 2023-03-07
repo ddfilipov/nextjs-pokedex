@@ -25,15 +25,15 @@ const Container = styled.div`
 `;
 
 interface MoveListProps {
-    moves: MoveGroup[];
+    movesList: MoveGroup[];
 }
 
-export const MoveList: FC<MoveListProps> = ({ moves }) => {
+export const MoveList: FC<MoveListProps> = ({ movesList }) => {
     useEffect(() => {
         console.log("-- 1 ---------------");
-        console.log(JSON.stringify(moves));
+        console.log(JSON.stringify(movesList));
         console.log("-- 2 ---------------");
-        const filteresMoves = moves.filter((move) =>
+        const filteresMoves = movesList.filter((move) =>
             move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
         );
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
@@ -69,7 +69,7 @@ export const MoveList: FC<MoveListProps> = ({ moves }) => {
         <Container>
             <ul>
                 MOVES
-                {moves.map((move, index) => (
+                {movesList.map((move, index) => (
                     <li key={move.move.name}>
                         <CustomText
                             text={`${move.move.name} (${

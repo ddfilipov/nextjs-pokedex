@@ -97,7 +97,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
                 </PictureWrapper>
                 <MovesWrapper>
-                    <MoveList moves={moves} />
+                    <MoveList movesList={moves} />
                 </MovesWrapper>
             </Wrapper>
         </>
