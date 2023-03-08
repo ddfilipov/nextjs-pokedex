@@ -36,7 +36,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         //     move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
         // );
         console.log(movesList);
-        const filteresMoves = movesList.filter((move) => {
+        const filteresMoves = movesList.map((move) => {
             // return move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion);
             return {
                 ...move,
