@@ -45,7 +45,9 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                 ),
             };
         });
-        
+
+        const restOfMoves = ""; // TODO: there has to be a better way for this that's not filtering the movesList again
+
         console.log("-- 2 --------------- DESPUÉS");
         console.log(JSON.stringify(technicalMachines));
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
