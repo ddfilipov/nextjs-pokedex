@@ -41,7 +41,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
             return {
                 ...move,
                 version_group_details: move.version_group_details.filter(
-                    (version) => version.version_group.name === "red-blue"
+                    (version) => version.move_learn_method.name === "machine"
                 ),
             };
         });
