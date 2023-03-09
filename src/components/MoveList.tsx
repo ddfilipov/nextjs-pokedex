@@ -36,7 +36,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         //     move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
         // );
         console.log(movesList);
-        const filteresMoves = movesList.map((move) => {
+        const technicalMachines = movesList.map((move) => {
             // return move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion);
             return {
                 ...move,
@@ -45,8 +45,9 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                 ),
             };
         });
+        
         console.log("-- 2 --------------- DESPUÉS");
-        console.log(JSON.stringify(filteresMoves));
+        console.log(JSON.stringify(technicalMachines));
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
