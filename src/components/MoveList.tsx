@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import styled from "styled-components";
-import { , MoveGroup } from "../types/types";
+import { MoveGroup } from "../types/types";
 import CustomText from "./atoms/CustomText";
 
 const Container = styled.div`
