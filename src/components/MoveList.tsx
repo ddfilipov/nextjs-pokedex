@@ -79,6 +79,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         });
         console.log(p3Filtrado2);
     }, []);
+    
     return (
         <Container>
             <ul>
