@@ -63,9 +63,10 @@ const StatBar = styled.div<{ statValue: number; statName: any }>`
     width: calc((${(props) => props.statValue} / 255) * 100%);
 `;
 
-export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2 }) => {
+export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2, abilities }) => {
     const router = useRouter();
 
+    console.log(abilities);
     return (
         <>
             <CustomButton type="button" onClick={() => router.back()}>
@@ -82,14 +83,14 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                     <div>
                         <h3>STATS</h3>
                         {Object.entries(stats2).map(([name, value]) => (
-                            <>
+                            <div key={name}>
                                 <div key={name}>
                                     <CustomText text={name} />
                                     {": "}
                                     <CustomText text={value.toString()} />
                                 </div>
                                 <StatBar statValue={value} statName={statStyles[name.toString()]} />
-                            </>
+                            </div>
                         ))}
                     </div>
                 </InfoWrapper2>

@@ -30,12 +30,12 @@ interface MoveListProps {
 
 export const MoveList: FC<MoveListProps> = ({ movesList }) => {
     useEffect(() => {
-        console.log("-- 1 --------------- ANTES");
-        console.log(JSON.stringify(movesList));
+        // console.log("-- 1 --------------- ANTES");
+        // console.log(JSON.stringify(movesList));
         // const filteresMoves = movesList.filter((move) =>
         //     move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
         // );
-        console.log(movesList);
+        // console.log(movesList);
         const technicalMachines = movesList.map((move) => {
             // return move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion);
             return {
@@ -48,8 +48,8 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
 
         const restOfMoves = ""; // TODO: there has to be a better way for this that's not filtering the movesList again
 
-        console.log("-- 2 --------------- DESPUÉS");
-        console.log(JSON.stringify(technicalMachines));
+        // console.log("-- 2 --------------- DESPUÉS");
+        // console.log(JSON.stringify(technicalMachines));
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
@@ -77,7 +77,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         const p3Filtrado2 = p3.map((item) => {
             return { ...item, objeto: item.objeto.filter((subSubItems) => subSubItems.nacionalidad === "BG") };
         });
-        console.log(p3Filtrado2);
+        // console.log(p3Filtrado2);
     }, []);
     
     return (
