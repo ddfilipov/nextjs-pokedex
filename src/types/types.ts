@@ -21,7 +21,7 @@ export interface IPokemonStats {
 
 export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
-    moves: PokemonMove[];
+    moves: MoveGroup[];
     // stats2?: Map<string, number>; // TODO: is a map necessary though?
     stats2: { [k: string]: number };
 }
