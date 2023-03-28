@@ -5,7 +5,6 @@ import PokemonData from "../../components/PokemonData";
 import { IGetPokemon, IPokemonBasicData, IPokemonExtendedData } from "../../types/types";
 
 export const Pokemon = ({ name, id, types, src, moves, stats, stats2 }: IPokemonExtendedData) => {
-    console.log("aaaaaaaaaaaaaaaaaaa stats2:", stats2);
     return <PokemonData name={name} id={id} types={types} src={src} moves={moves} stats={stats} stats2={stats2} />;
 };
 export default Pokemon;
@@ -34,10 +33,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const stats: Map<string, number> = new Map<string, number>();
 
     await res.data.stats.map((stat: any) => {
-        console.log("hey stat:", stat);
         stats.set(stat.stat.name, stat.base_stat);
     });
-    console.log("stats:", stats);
     const stringifiedMap = Object.fromEntries(stats);
     JSON.stringify(stringifiedMap);
 
