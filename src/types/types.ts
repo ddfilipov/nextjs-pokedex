@@ -23,7 +23,7 @@ export interface IPokemonExtendedData extends IPokemonBasicData {
     stats: IPokemonStats;
     moves: MoveGroup[];
     stats2: { [k: string]: number };
-    abilities: any;
+    abilities: NameApiResource[];
 }
 
 export interface IStatsTest {}
