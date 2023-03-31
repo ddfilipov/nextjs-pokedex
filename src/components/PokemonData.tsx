@@ -66,7 +66,7 @@ const StatBar = styled.div<{ statValue: number; statName: any }>`
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2, abilities }) => {
     const router = useRouter();
 
-    console.log(abilities);
+    console.log(abilities[0].ability.name);
     return (
         <>
             <CustomButton type="button" onClick={() => router.back()}>
