@@ -79,6 +79,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                             #{id} {capitalizeFirstLetter(name)}
                         </h1>
                         <TypeContainer types={types} />
+                        <p>{abilities[0].ability.name}</p>
                     </div>
                     <div>
                         <h3>STATS</h3>
