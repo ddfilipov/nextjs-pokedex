@@ -90,3 +90,9 @@ export interface VersionGroupDetail {
     move_learn_method: NameApiResource;
     version_group: NameApiResource;
 }
+
+export interface PokemonAbility {
+    is_hidden: boolean;
+    slot: number;
+    ability: NameApiResource;
+}
