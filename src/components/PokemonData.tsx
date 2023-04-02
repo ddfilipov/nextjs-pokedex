@@ -66,6 +66,10 @@ const StatBar = styled.div<{ statValue: number; statName: any }>`
 export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, moves, stats, stats2, abilities }) => {
     const router = useRouter();
 
+    const getAbilities = () => {
+        abilities.join(",");
+    }
+
     console.log(abilities[0].ability.name);
     return (
         <>
@@ -79,7 +83,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                             #{id} {capitalizeFirstLetter(name)}
                         </h1>
                         <TypeContainer types={types} />
-                        <p>{abilities[0].ability.name}</p>
+                        <p>Abilities: {abilities[0].ability.name}</p>
                     </div>
                     <div>
                         <h3>STATS</h3>
