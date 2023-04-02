@@ -67,8 +67,9 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
     const router = useRouter();
 
     const getAbilities = () => {
-        abilities.join(",");
-    }
+        const result = abilities.map((element) => element.ability.name).join(",");
+        return result;
+    };
 
     console.log(abilities[0].ability.name);
     return (
