@@ -67,8 +67,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
     const router = useRouter();
 
     const getAbilities = () => {
-        const result = abilities.map((element) => element.ability.name).join(",");
-        return result;
+        const result = abilities.map((element) => element.ability.name).join(", ");
+        return <div style={{ textTransform: "capitalize" }}>Abilities: {result}</div>;
     };
 
     console.log(abilities[0].ability.name);
@@ -84,7 +84,7 @@ export const PokemonData: FC<IPokemonExtendedData> = ({ name, id, types, src, mo
                             #{id} {capitalizeFirstLetter(name)}
                         </h1>
                         <TypeContainer types={types} />
-                        <p>Abilities: {abilities[0].ability.name}</p>
+                        {getAbilities()}
                     </div>
                     <div>
                         <h3>STATS</h3>
