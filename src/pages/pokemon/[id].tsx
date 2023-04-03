@@ -63,6 +63,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     JSON.stringify(stringifiedMap);
 
     const { name, id }: IPokemonBasicData = await res.data;
+    const heightInM = res.data.height / 10;
+    const weightInKg = res.data.weight / 10;
 
     return {
         props: {
@@ -74,8 +76,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             stats: res.data.stats,
             stats2: stringifiedMap,
             abilities: res.data.abilities,
-            height: res.data.height,
-            weight: res.data.weight,
+            height: heightInM,
+            weight: weightInKg,
         },
     };
 };
