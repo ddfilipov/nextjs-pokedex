@@ -4,7 +4,18 @@ import { baseUrl } from "..";
 import PokemonData from "../../components/PokemonData";
 import { IGetPokemon, IPokemonBasicData, IPokemonExtendedData } from "../../types/types";
 
-export const Pokemon = ({ name, id, types, src, moves, stats, stats2, abilities }: IPokemonExtendedData) => {
+export const Pokemon = ({
+    name,
+    id,
+    types,
+    src,
+    moves,
+    stats,
+    stats2,
+    abilities,
+    height,
+    weight,
+}: IPokemonExtendedData) => {
     return (
         <PokemonData
             name={name}
@@ -15,6 +26,8 @@ export const Pokemon = ({ name, id, types, src, moves, stats, stats2, abilities 
             stats={stats}
             stats2={stats2}
             abilities={abilities}
+            height={height}
+            weight={weight}
         />
     );
 };
@@ -61,6 +74,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             stats: res.data.stats,
             stats2: stringifiedMap,
             abilities: res.data.abilities,
+            height: res.data.height,
+            weight: res.data.weight,
         },
     };
 };

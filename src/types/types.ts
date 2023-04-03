@@ -24,6 +24,8 @@ export interface IPokemonExtendedData extends IPokemonBasicData {
     moves: MoveGroup[];
     stats2: { [k: string]: number };
     abilities: PokemonAbility[];
+    height: number; // in dm
+    weight: number; // in hg
 }
 
 export interface IStatsTest {}
