@@ -82,7 +82,6 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
         return <div style={{ textTransform: "capitalize" }}>Abilities: {result}</div>;
     };
 
-    console.log("a verrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", weight);
     return (
         <>
             <CustomButton type="button" onClick={() => router.back()}>
