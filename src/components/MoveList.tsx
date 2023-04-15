@@ -79,7 +79,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         });
         // console.log(p3Filtrado2);
     }, []);
-    
+
     return (
         <Container>
             <ul>
@@ -89,7 +89,9 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                         <CustomText
                             text={`${move.move.name} (${
                                 (move as any).version_group_details[0].move_learn_method.name
-                            }) - ${(move as any).version_group_details[0].version_group.name}`}
+                            }) - ${(move as any).version_group_details[0].version_group.name}- ${
+                                (move as any).version_group_details[0].level_learned_at
+                            }`}
                             //TODO: version-group
                         />
                     </li> //moves.moves wot? fix this
