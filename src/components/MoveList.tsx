@@ -53,6 +53,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
         // defaultGameVersion
         // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
+        // trynna understand filters and maps and spreads
         const p3 = [
             {
                 titulo: "tios",
