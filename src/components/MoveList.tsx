@@ -47,37 +47,42 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
         });
 
         const restOfMoves = ""; // TODO: there has to be a better way for this that's not filtering the movesList again
-
-        // console.log("-- 2 --------------- DESPUÉS");
-        // console.log(JSON.stringify(technicalMachines));
-        // const prueba = versionGroupDetails.find((ver)=>ver.version_group.name ==="yellow")
-        // defaultGameVersion
-        // const primeraFase = json.filter((movimiento) => console.log(movimiento.version_group_details.filter((version)=>version.version_group.name === "red-blue")));
-        // trynna understand filters and maps and spreads
-        const p3 = [
+        const cars = [
             {
-                titulo: "tios",
-                objeto: [
-                    { nombre: "Denis", nacionalidad: "BG" },
-                    { nombre: "Pepe", nacionalidad: "ES" },
-                    { nombre: "Dimitar", nacionalidad: "BG" },
+                brand: { name: "BMW" },
+                models: [
+                    {
+                        name: "BMW1",
+                    },
+                    {
+                        name: "BMW2",
+                    },
                 ],
             },
             {
-                titulo: "tias",
-                objeto: [
-                    { nombre: "Analina", nacionalidad: "BG" },
-                    { nombre: "Luisa", nacionalidad: "ES" },
-                    { nombre: "Petra", nacionalidad: "BG" },
+                brand: { name: "Toyota" },
+                models: [
+                    {
+                        name: "Toyota1",
+                    },
+                    {
+                        name: "Toyota2",
+                    },
+                ],
+            },
+            {
+                brand: { name: "Mercedes" },
+                models: [
+                    {
+                        name: "Mercedes1",
+                    },
+                    {
+                        name: "Mercedes2",
+                    },
                 ],
             },
         ];
-
-        const p3Filtrado = p3.filter((item) => item.titulo === "tios");
-        // console.log(p3Filtrado)
-        const p3Filtrado2 = p3.map((item) => {
-            return { ...item, objeto: item.objeto.filter((subSubItems) => subSubItems.nacionalidad === "BG") };
-        });
+        const newAbilities = cars.filter((car) => car.models.some((model) => model.name === "Mercedes1"));
         // console.log(p3Filtrado2);
     }, []);
 
