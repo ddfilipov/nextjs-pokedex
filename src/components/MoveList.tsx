@@ -83,7 +83,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
             },
         ];
         const newAbilities = cars.filter((car) => car.models.some((model) => model.name === "Mercedes1"));
-        // console.log(p3Filtrado2);
+        // console.log(p3Filtrado2); still no
     }, []);
 
     return (
