@@ -30,74 +30,16 @@ interface MoveListProps {
 
 export const MoveList: FC<MoveListProps> = ({ movesList }) => {
     useEffect(() => {
-        // console.log("-- 1 --------------- ANTES");
-        // console.log(JSON.stringify(movesList));
-        // const filteresMoves = movesList.filter((move) =>
-        //     move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion)
-        // );
-        // console.log(movesList);
         console.log(JSON.stringify(movesList));
-        const technicalMachines = movesList.map((move) => {
-            // return move.version_group_details.find((move2) => move2.version_group.name === defaultGameVersion);
-            return {
-                ...move,
-                version_group_details: move.version_group_details.filter(
-                    (version) => version.move_learn_method.name === "machine"
-                ),
-            };
-        });
         // is this gonna be the one??????
-        // const newMoves = json.map((element) => {
-        //     return {
-        //       move: element.move,
-        //       version_group_details: element.version_group_details.filter(
-        //         (group) => group.version_group.name === "red-blue"
-        //       ),
-        //     };
-        //   });
-        //   // console.log(newMoves);
-
-        //   const nullsOut = newMoves.filter((elm)=>elm.version_group_details.length > 0)
-        //   console.log(nullsOut)
-
-        const restOfMoves = ""; // TODO: there has to be a better way for this that's not filtering the movesList again
-        const cars = [
-            {
-                brand: { name: "BMW" },
-                models: [
-                    {
-                        name: "BMW1",
-                    },
-                    {
-                        name: "BMW2",
-                    },
-                ],
-            },
-            {
-                brand: { name: "Toyota" },
-                models: [
-                    {
-                        name: "Toyota1",
-                    },
-                    {
-                        name: "Toyota2",
-                    },
-                ],
-            },
-            {
-                brand: { name: "Mercedes" },
-                models: [
-                    {
-                        name: "Mercedes1",
-                    },
-                    {
-                        name: "Mercedes2",
-                    },
-                ],
-            },
-        ];
-        const newAbilities = cars.filter((car) => car.models.some((model) => model.name === "Mercedes1"));
-        // console.log(p3Filtrado2); still no
+        const newMoves = movesList.map((element) => {
+            return {
+              move: element.move,
+              version_group_details: element.version_group_details.filter(
+                (group) => group.version_group.name === "red-blue"
+              ),
+            };
+          });
     }, []);
 
     return (
