@@ -54,7 +54,8 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                     lvlLearnedAt: elm.version_group_details[0].level_learned_at,
                     learnMethod: elm.version_group_details[0].move_learn_method.name,
                 };
-            });
+            })
+            .sort((a, b) => a.lvlLearnedAt - b.lvlLearnedAt);
         setLvlUpMoves(newMoves);
     }, []);
 
