@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { MoveGroup } from "../types/types";
 import CustomText from "./atoms/CustomText";
@@ -28,32 +28,44 @@ interface MoveListProps {
     movesList: MoveGroup[];
 }
 
+interface ISimplifiedMoves {
+    moveName: string;
+    lvlLearnedAt: number;
+    learnMethod: string;
+}
 export const MoveList: FC<MoveListProps> = ({ movesList }) => {
+    const [lvlUpMoves, setLvlUpMoves] = useState<ISimplifiedMoves[]>([]);
     useEffect(() => {
         console.log(JSON.stringify(movesList));
         // is this gonna be the one??????
-        const newMoves = movesList.map((element) => {
-            return {
-              move: element.move,
-              version_group_details: element.version_group_details.filter(
-                (group) => group.version_group.name === "red-blue"
-              ),
-            };
-          });
+        const newMoves = movesList
+            .map((element) => {
+                return {
+                    moveName: element.move.name,
+                    version_group_details: element.version_group_details.filter(
+                        (group) => group.version_group.name === "red-blue"
+                    ),
+                };
+            })
+            .filter((element) => element.version_group_details.length > 0)
+            .map((elm) => {
+                return {
+                    moveName: elm.moveName,
+                    lvlLearnedAt: elm.version_group_details[0].level_learned_at,
+                    learnMethod: elm.version_group_details[0].move_learn_method.name,
+                };
+            });
+        setLvlUpMoves(newMoves);
     }, []);
 
     return (
         <Container>
             <ul>
                 MOVES
-                {movesList.map((move, index) => (
-                    <li key={move.move.name}>
+                {lvlUpMoves.map((move, index) => (
+                    <li key={move.moveName}>
                         <CustomText
-                            text={`${move.move.name} (${
-                                (move as any).version_group_details[0].move_learn_method.name
-                            }) - ${(move as any).version_group_details[0].version_group.name}- ${
-                                (move as any).version_group_details[0].level_learned_at
-                            }`}
+                            text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
                             //TODO: version-group
                         />
                     </li> //moves.moves wot? fix this
