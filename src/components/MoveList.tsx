@@ -46,6 +46,11 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                 ),
             };
         });
+        // is this gonna be the one??????
+        // const newMoves = json.flatMap((element) =>
+        //     element.version_group_details.filter((group) => group.version_group.name === "red-blue")
+        // );
+        // console.log(newMoves);
 
         const restOfMoves = ""; // TODO: there has to be a better way for this that's not filtering the movesList again
         const cars = [
