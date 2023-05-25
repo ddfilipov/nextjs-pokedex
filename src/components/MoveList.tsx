@@ -62,19 +62,34 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
     }, []);
 
     return (
-        <Container>
-            <ul>
-                MOVES
-                {lvlUpMoves.map((move, index) => (
-                    <li key={move.moveName}>
-                        <CustomText
-                            text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
-                            //TODO: version-group
-                        />
-                    </li> //moves.moves wot? fix this
-                ))}
-            </ul>
-        </Container>
+        <>
+            <Container>
+                <ul>
+                    Level Up Moves
+                    {lvlUpMoves.map((move, index) => (
+                        <li key={move.moveName}>
+                            <CustomText
+                                text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
+                                //TODO: version-group
+                            />
+                        </li> //moves.moves wot? fix this
+                    ))}
+                </ul>
+            </Container>
+            <Container>
+                <ul>
+                    HMs/TMs
+                    {machineMoves.map((move, index) => (
+                        <li key={move.moveName}>
+                            <CustomText
+                                text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
+                                //TODO: version-group
+                            />
+                        </li> //moves.moves wot? fix this
+                    ))}
+                </ul>
+            </Container>
+        </>
     );
 };
 export default MoveList;
