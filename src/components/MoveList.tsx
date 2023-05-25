@@ -35,6 +35,7 @@ interface ISimplifiedMoves {
 }
 export const MoveList: FC<MoveListProps> = ({ movesList }) => {
     const [lvlUpMoves, setLvlUpMoves] = useState<ISimplifiedMoves[]>([]);
+    const [machineMoves, setMachineMoves] = useState<ISimplifiedMoves[]>([]);
     useEffect(() => {
         console.log(JSON.stringify(movesList));
         // is this gonna be the one??????
@@ -56,7 +57,8 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                 };
             })
             .sort((a, b) => a.lvlLearnedAt - b.lvlLearnedAt);
-        setLvlUpMoves(newMoves);
+        setLvlUpMoves(newMoves.filter((elm) => elm.learnMethod === "level-up"));
+        setMachineMoves(newMoves.filter((elm) => elm.learnMethod === "machine"));
     }, []);
 
     return (
