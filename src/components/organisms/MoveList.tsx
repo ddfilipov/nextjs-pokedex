@@ -7,6 +7,12 @@ const Container = styled.div`
     display: grid;
     border: 1px solid white;
     overflow-y: auto;
+    min-width: 300px;
+    width: 100%;
+    justify-items: center;
+    ul {
+        list-style: none;
+    }
     /* grid-template-columns: 1fr 1fr;
     padding: 10px; */
 
@@ -26,18 +32,19 @@ const Container = styled.div`
 
 interface MoveListProps {
     movesList: ISimplifiedMoves[];
+    title: string;
 }
 
-export const MoveList: FC<MoveListProps> = ({ movesList }) => {
+export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
     return (
         <>
             <Container>
                 <ul>
-                    Level Up Moves
+                    <h2>{title}</h2>
                     {movesList.map((move, index) => (
                         <li key={move.moveName}>
                             <CustomText
-                                text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
+                                text={`${move.moveName} - ${move.lvlLearnedAt}`}
                                 //TODO: version-group
                             />
                         </li> //moves.moves wot? fix this

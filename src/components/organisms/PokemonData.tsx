@@ -50,6 +50,7 @@ const MovesWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-area: 2 / 1 / 2 / 3;
+    justify-items: center;
     border: 1px solid white;
     overflow-y: auto;
     padding: 10px;
@@ -147,8 +148,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
                 </PictureWrapper>
                 <MovesWrapper>
-                    <MoveList movesList={lvlUpMoves} />
-                    <MoveList movesList={machineMoves} />
+                    <MoveList movesList={lvlUpMoves} title="Level Up Moves" />
+                    <MoveList movesList={machineMoves} title="Machine Moves" />
                 </MovesWrapper>
             </Wrapper>
         </>
