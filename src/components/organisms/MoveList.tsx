@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import { MoveGroup } from "../../types/types";
+import { ISimplifiedMoves, MoveGroup } from "../../types/types";
 import CustomText from "../atoms/CustomText";
 
 const Container = styled.div`
@@ -25,59 +25,16 @@ const Container = styled.div`
 `;
 
 interface MoveListProps {
-    movesList: MoveGroup[];
+    movesList: ISimplifiedMoves[];
 }
 
-interface ISimplifiedMoves {
-    moveName: string;
-    lvlLearnedAt: number;
-    learnMethod: string;
-}
 export const MoveList: FC<MoveListProps> = ({ movesList }) => {
-    const [lvlUpMoves, setLvlUpMoves] = useState<ISimplifiedMoves[]>([]);
-    const [machineMoves, setMachineMoves] = useState<ISimplifiedMoves[]>([]);
-    useEffect(() => {
-        console.log(JSON.stringify(movesList));
-        // is this gonna be the one??????
-        const newMoves = movesList
-            .map((element) => {
-                return {
-                    moveName: element.move.name,
-                    version_group_details: element.version_group_details.filter(
-                        (group) => group.version_group.name === "red-blue"
-                    ),
-                };
-            })
-            .filter((element) => element.version_group_details.length > 0)
-            .map((elm) => {
-                return {
-                    moveName: elm.moveName,
-                    lvlLearnedAt: elm.version_group_details[0].level_learned_at,
-                    learnMethod: elm.version_group_details[0].move_learn_method.name,
-                };
-            })
-            .sort((a, b) => a.lvlLearnedAt - b.lvlLearnedAt);
-        setLvlUpMoves(newMoves.filter((elm) => elm.learnMethod === "level-up"));
-        setMachineMoves(newMoves.filter((elm) => elm.learnMethod === "machine"));
-    }, []);
-
     return (
         <>
             <Container>
                 <ul>
                     Level Up Moves
-                    {lvlUpMoves.map((move, index) => (
-                        <li key={move.moveName}>
-                            <CustomText
-                                text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}
-                                //TODO: version-group
-                            />
-                        </li> //moves.moves wot? fix this
-                    ))}
-                </ul>
-                <ul>
-                    HMs/TMs
-                    {machineMoves.map((move, index) => (
+                    {movesList.map((move, index) => (
                         <li key={move.moveName}>
                             <CustomText
                                 text={`${move.moveName} (${move.learnMethod}) - ${move.lvlLearnedAt}`}

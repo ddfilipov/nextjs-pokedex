@@ -98,3 +98,9 @@ export interface PokemonAbility {
     slot: number;
     ability: NameApiResource;
 }
+
+export interface ISimplifiedMoves {
+    moveName: string;
+    lvlLearnedAt: number;
+    learnMethod: string;
+}

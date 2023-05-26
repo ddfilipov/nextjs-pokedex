@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import imageLoader from "../../imageLoader";
 import { CustomButton } from "../../styles/GlobalStyle";
@@ -63,6 +63,12 @@ const StatBar = styled.div<{ statValue: number; statName: any }>`
     width: calc((${(props) => props.statValue} / 255) * 100%);
 `;
 
+interface ISimplifiedMoves {
+    moveName: string;
+    lvlLearnedAt: number;
+    learnMethod: string;
+}
+
 export const PokemonData: FC<IPokemonExtendedData> = ({
     name,
     id,
@@ -77,10 +83,36 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
 }) => {
     const router = useRouter();
 
+    const [lvlUpMoves, setLvlUpMoves] = useState<ISimplifiedMoves[]>([]);
+    const [machineMoves, setMachineMoves] = useState<ISimplifiedMoves[]>([]);
+
     const getAbilities = () => {
         const result = abilities.map((element) => element.ability.name).join(", ");
         return <div style={{ textTransform: "capitalize" }}>Abilities: {result}</div>;
     };
+    useEffect(() => {
+        // is this gonna be the one??????
+        const newMoves = moves
+            .map((element) => {
+                return {
+                    moveName: element.move.name,
+                    version_group_details: element.version_group_details.filter(
+                        (group) => group.version_group.name === "red-blue"
+                    ),
+                };
+            })
+            .filter((element) => element.version_group_details.length > 0)
+            .map((elm) => {
+                return {
+                    moveName: elm.moveName,
+                    lvlLearnedAt: elm.version_group_details[0].level_learned_at,
+                    learnMethod: elm.version_group_details[0].move_learn_method.name,
+                };
+            })
+            .sort((a, b) => a.lvlLearnedAt - b.lvlLearnedAt);
+        setLvlUpMoves(newMoves.filter((elm) => elm.learnMethod === "level-up"));
+        setMachineMoves(newMoves.filter((elm) => elm.learnMethod === "machine"));
+    }, []);
 
     return (
         <>
@@ -116,7 +148,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
                 </PictureWrapper>
                 <MovesWrapper>
-                    <MoveList movesList={moves} />
+                    <MoveList movesList={lvlUpMoves} />
+                    <MoveList movesList={machineMoves} />
                 </MovesWrapper>
             </Wrapper>
         </>
