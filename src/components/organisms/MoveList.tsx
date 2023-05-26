@@ -9,12 +9,9 @@ const Container = styled.div`
     overflow-y: auto;
     min-width: 300px;
     width: 100%;
-    justify-items: center;
     ul {
         list-style: none;
     }
-    /* grid-template-columns: 1fr 1fr;
-    padding: 10px; */
 
     &::-webkit-scrollbar {
         width: 1em;
@@ -30,6 +27,15 @@ const Container = styled.div`
     }
 `;
 
+const StyledList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    li {
+        background-color: #151100;
+    }
+`;
+
 interface MoveListProps {
     movesList: ISimplifiedMoves[];
     title: string;
@@ -39,8 +45,8 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
     return (
         <>
             <Container>
-                <ul>
-                    <h2>{title}</h2>
+                <h2>{title}</h2>
+                <StyledList>
                     {movesList.map((move, index) => (
                         <li key={move.moveName}>
                             <CustomText
@@ -49,7 +55,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
                             />
                         </li> //moves.moves wot? fix this
                     ))}
-                </ul>
+                </StyledList>
             </Container>
         </>
     );
