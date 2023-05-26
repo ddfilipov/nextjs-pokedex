@@ -2,7 +2,7 @@ import { Inter } from "@next/font/google";
 import { GetStaticProps } from "next";
 import axios from "axios";
 import { IGetPokemon } from "../types/types";
-import PokemonList from "../components/PokemonList";
+import PokemonList from "../components/organisms/PokemonList";
 import GlobalStyle from "../styles/GlobalStyle";
 
 const inter = Inter({ subsets: ["latin"] });

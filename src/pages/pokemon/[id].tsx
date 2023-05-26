@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { baseUrl } from "..";
-import PokemonData from "../../components/PokemonData";
+import PokemonData from "../../components/organisms/PokemonData";
 import { IGetPokemon, IPokemonBasicData, IPokemonExtendedData } from "../../types/types";
 
 export const Pokemon = ({

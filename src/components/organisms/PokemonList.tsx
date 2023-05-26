@@ -1,9 +1,9 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import styled from "styled-components";
-import { CustomButton } from "../styles/GlobalStyle";
-import { IGetPokemon, Pokemon } from "../types/types";
-import CustomInput from "./atoms/CustomInput";
-import PokemonCard from "./PokemonCard";
+import { CustomButton } from "../../styles/GlobalStyle";
+import { IGetPokemon, Pokemon } from "../../types/types";
+import CustomInput from "../atoms/CustomInput";
+import PokemonCard from "../molecules/PokemonCard";
 
 const Wrapper = styled.div`
     display: flex;
@@ -64,7 +64,7 @@ export const PokemonList = ({ results }: IGetPokemon) => {
     const [showTo, setShowTo] = useState<number>(20);
     const [allPokemon, setAllPokemon] = useState<Pokemon[]>(results);
     const [pokemons, setPokemons] = useState<Pokemon[]>(results.slice(showFrom, showTo));
-    
+
     const [filteredWord, setFilteredWord] = useState<string>("");
 
     const nextPage = () => {

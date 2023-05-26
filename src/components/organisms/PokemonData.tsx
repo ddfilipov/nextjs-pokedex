@@ -2,14 +2,14 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import styled from "styled-components";
-import imageLoader from "../imageLoader";
-import { CustomButton } from "../styles/GlobalStyle";
-import { IPokemonExtendedData } from "../types/types";
-import { capitalizeFirstLetter } from "../utils/funcs";
-import MoveList from "./organisms/MoveList";
-import TypeContainer from "./atoms/TypeContainer";
-import CustomText from "./atoms/CustomText";
-import { statStyles } from "../styles/const";
+import imageLoader from "../../imageLoader";
+import { CustomButton } from "../../styles/GlobalStyle";
+import { IPokemonExtendedData } from "../../types/types";
+import { capitalizeFirstLetter } from "../../utils/funcs";
+import MoveList from "./MoveList";
+import TypeContainer from "../atoms/TypeContainer";
+import CustomText from "../atoms/CustomText";
+import { statStyles } from "../../styles/const";
 
 const Wrapper = styled.div`
     display: grid;

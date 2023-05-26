@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import imageLoader from "../imageLoader";
-import { IPokemonBasicData } from "../types/types";
-import { capitalizeFirstLetter } from "../utils/funcs";
-import LoadingSpinner from "./atoms/LoadingSpinner";
-import TypeContainer from "./atoms/TypeContainer";
+import imageLoader from "../../imageLoader";
+import { IPokemonBasicData } from "../../types/types";
+import { capitalizeFirstLetter } from "../../utils/funcs";
+import LoadingSpinner from "../atoms/LoadingSpinner";
+import TypeContainer from "../atoms/TypeContainer";
 
 interface PokemonCardProps {
     id: string;
