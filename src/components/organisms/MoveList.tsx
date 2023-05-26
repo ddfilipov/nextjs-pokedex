@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { ISimplifiedMoves, MoveGroup } from "../../types/types";
 import CustomText from "../atoms/CustomText";
+import CustomKeyValueCell from "../atoms/CustomKeyValueCell";
 
 const Container = styled.div`
     display: grid;
@@ -49,9 +50,11 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
                 <StyledList>
                     <li>Name - Lvl/HM/TM</li>
                     {movesList.map((move, index) => (
-                        <li key={move.moveName}>
-                            <CustomText text={`${move.moveName} - ${move.lvlLearnedAt}`} />
-                        </li>
+                        <CustomKeyValueCell
+                            key={move.moveName}
+                            firstValue={move.moveName}
+                            secondValue={move.lvlLearnedAt.toString()}
+                        />
                     ))}
                 </StyledList>
             </Container>
