@@ -47,12 +47,11 @@ const InfoWrapper2 = styled.div`
     padding: 10px;
 `;
 const MovesWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-area: 2 / 1 / 2 / 3;
     border: 1px solid white;
-    width: auto;
-    height: 500px;
+    overflow-y: auto;
     padding: 10px;
 `;
 
@@ -90,8 +89,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
         const result = abilities.map((element) => element.ability.name).join(", ");
         return <div style={{ textTransform: "capitalize" }}>Abilities: {result}</div>;
     };
+
     useEffect(() => {
-        // is this gonna be the one??????
         const newMoves = moves
             .map((element) => {
                 return {

@@ -5,10 +5,10 @@ import CustomText from "../atoms/CustomText";
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     border: 1px solid white;
     overflow-y: auto;
-    padding: 10px;
+    /* grid-template-columns: 1fr 1fr;
+    padding: 10px; */
 
     &::-webkit-scrollbar {
         width: 1em;
