@@ -6,6 +6,13 @@ import CustomText from "../atoms/CustomText";
 const Container = styled.li`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    span {
+        background-color: #151100;
+        padding: 5px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    gap: 10px;
 `;
 
 interface CustomKeyValueProps {

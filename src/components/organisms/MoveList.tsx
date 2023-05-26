@@ -11,6 +11,8 @@ const Container = styled.div`
     min-width: 300px;
     width: 100%;
     max-height: 500px;
+    padding: 20px;
+
     ul {
         list-style: none;
     }
@@ -33,9 +35,6 @@ const StyledList = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 5px;
-    li {
-        background-color: #151100;
-    }
 `;
 
 interface MoveListProps {
@@ -49,7 +48,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
             <Container>
                 <h2>{title}</h2>
                 <StyledList>
-                    <li>Name - Lvl/HM/TM</li>
+                    <CustomKeyValueCell firstValue={"Name"} secondValue={"Lvl learned at"} />
                     {movesList.map((move, index) => (
                         <CustomKeyValueCell
                             key={move.moveName}
