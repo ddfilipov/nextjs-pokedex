@@ -6,7 +6,7 @@ import imageLoader from "../imageLoader";
 import { CustomButton } from "../styles/GlobalStyle";
 import { IPokemonExtendedData } from "../types/types";
 import { capitalizeFirstLetter } from "../utils/funcs";
-import MoveList from "./MoveList";
+import MoveList from "./organisms/MoveList";
 import TypeContainer from "./atoms/TypeContainer";
 import CustomText from "./atoms/CustomText";
 import { statStyles } from "../styles/const";

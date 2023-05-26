@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import { MoveGroup } from "../types/types";
-import CustomText from "./atoms/CustomText";
+import { MoveGroup } from "../../types/types";
+import CustomText from "../atoms/CustomText";
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border: 1px solid white;
     overflow-y: auto;
     padding: 10px;
@@ -75,8 +75,6 @@ export const MoveList: FC<MoveListProps> = ({ movesList }) => {
                         </li> //moves.moves wot? fix this
                     ))}
                 </ul>
-            </Container>
-            <Container>
                 <ul>
                     HMs/TMs
                     {machineMoves.map((move, index) => (
