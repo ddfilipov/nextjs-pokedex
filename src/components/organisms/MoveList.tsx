@@ -50,11 +50,8 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
                     <li>Name - Lvl/HM/TM</li>
                     {movesList.map((move, index) => (
                         <li key={move.moveName}>
-                            <CustomText
-                                text={`${move.moveName} - ${move.lvlLearnedAt}`}
-                                //TODO: version-group
-                            />
-                        </li> //moves.moves wot? fix this
+                            <CustomText text={`${move.moveName} - ${move.lvlLearnedAt}`} />
+                        </li>
                     ))}
                 </StyledList>
             </Container>
