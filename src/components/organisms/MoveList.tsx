@@ -47,6 +47,7 @@ export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
             <Container>
                 <h2>{title}</h2>
                 <StyledList>
+                    <li>Name - Lvl/HM/TM</li>
                     {movesList.map((move, index) => (
                         <li key={move.moveName}>
                             <CustomText
