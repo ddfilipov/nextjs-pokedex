@@ -1,7 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
-import { ISimplifiedMoves, MoveGroup } from "../../types/types";
-import CustomText from "../atoms/CustomText";
+import { ISimplifiedMoves } from "../../types/types";
 import CustomKeyValueCell from "../atoms/CustomKeyValueCell";
 
 const Container = styled.div`
