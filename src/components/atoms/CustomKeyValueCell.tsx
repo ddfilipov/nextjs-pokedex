@@ -23,7 +23,7 @@ interface CustomKeyValueProps {
 export const CustomKeyValueCell: FC<CustomKeyValueProps> = ({ firstValue, secondValue }) => {
     return (
         <Container>
-            <span>{firstValue}</span>
+            <CustomText text={firstValue} />
             <span>{secondValue}</span>
         </Container>
     );
