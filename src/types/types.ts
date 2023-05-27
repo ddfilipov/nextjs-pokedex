@@ -104,3 +104,5 @@ export interface ISimplifiedMoves {
     lvlLearnedAt: number;
     learnMethod: string;
 }
+
+export type MoveLearnMethod = "level-up" | "machine";

@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import { ISimplifiedMoves, MoveGroup } from "../../types/types";
 import CustomText from "../atoms/CustomText";
 
 const Container = styled.li`

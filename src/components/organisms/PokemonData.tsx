@@ -148,8 +148,8 @@ export const PokemonData: FC<IPokemonExtendedData> = ({
                     <Image src={src} alt={name} width={200} height={200} loader={imageLoader} unoptimized />{" "}
                 </PictureWrapper>
                 <MovesWrapper>
-                    <MoveList movesList={lvlUpMoves} title="Level Up Moves" />
-                    <MoveList movesList={machineMoves} title="Machine Moves" />
+                    <MoveList movesList={lvlUpMoves} title="Level Up Moves" moveType="level-up" />
+                    <MoveList movesList={machineMoves} title="Machine Moves" moveType="machine" />
                 </MovesWrapper>
             </Wrapper>
         </>

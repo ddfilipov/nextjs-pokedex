@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { ISimplifiedMoves } from "../../types/types";
+import { ISimplifiedMoves, MoveLearnMethod } from "../../types/types";
 import CustomKeyValueCell from "../atoms/CustomKeyValueCell";
 
 const Container = styled.div`
@@ -39,9 +39,10 @@ const StyledList = styled.ul`
 interface MoveListProps {
     movesList: ISimplifiedMoves[];
     title: string;
+    moveType: MoveLearnMethod;
 }
 
-export const MoveList: FC<MoveListProps> = ({ movesList, title }) => {
+export const MoveList: FC<MoveListProps> = ({ movesList, title, moveType }) => {
     return (
         <>
             <Container>
